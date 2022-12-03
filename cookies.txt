@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+watchahatv.com	TRUE	/	FALSE	1999999999	ci_session	b1226eb5a051404d4302976d0f819b57d662466c
+.watchahatv.com	TRUE	/	FALSE	1999999999	PHPSESSID	2e8a446ef78aa5068b7c8abac013aaa7
+
