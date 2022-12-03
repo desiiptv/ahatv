@@ -173,12 +173,12 @@ may only contain letters, numbers, and underscores</div>        </div>        <d
     
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6Ld64VIjAAAAANAGkRKuogmzA7_60aWjJ2fKTklX"></script>
     <script type="text/javascript" src="./../www.google.com/recaptcha/apifef7.js?hl=en" async defer></script>
+
     <div class="g-recaptcha" data-sitekey="6Ld64VIjAAAAANAGkRKuogmzA7_60aWjJ2fKTklX" data-theme="light" data-size="normal" ></div></div></div>
 
 
 
-    <form action="https://www.paypal.com/cgi-bin/webscr" method="post"> <!-- Identify your business so that you can collect the payments. --> <input type="hidden" name="business" value="alice@mystore.com"> <!-- Specify a Subscribe button. --> <input type="hidden" name="cmd" value="_xclick-subscriptions"> <!-- Identify the subscription. --> <input type="hidden" name="item_name" value="Alice's Weekly Digest"> <input type="hidden" name="item_number" value="DIG Weekly"> <!-- Set the terms of the 1st trial period. --> <input type="hidden" name="currency_code" value="USD"> <input type="hidden" name="a1" value="0"> <input type="hidden" name="p1" value="7"> <input type="hidden" name="t1" value="D"> <!-- Set the terms of the 2nd trial period. --> <input type="hidden" name="a2" value="5.00"> <input type="hidden" name="p2" value="3"> <input type="hidden" name="t2" value="W"> <!-- Set the terms of the regular subscription. --> <input type="hidden" name="a3" value="49.99"> <input type="hidden" name="p3" value="1"> <input type="hidden" name="t3" value="Y"> <!-- Set recurring payments until canceled. --> <input type="hidden" name="src" value="1"> <!-- Display the payment button. --> <input type="image" name="submit" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribe_LG.gif" alt="Subscribe"> <img alt="" width="1" height="1" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" > </form>
-
+    
 
         <!DOCTYPE html>
 <html>
@@ -191,7 +191,6 @@ may only contain letters, numbers, and underscores</div>        </div>        <d
 	<!-- End Google Tag Manager -->	
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-  <body>
     <!-- Replace "test" with your own sandbox Business account app client ID -->
     <script src="https://www.paypal.com/sdk/js?client-id=AS9crqxgFvh3z1t7YSDHY4qU4hNijBR8VmSG_ydy92kk6yGXmqkL4lGQa0gc1imzjAaj51Ae-jIvfE9V
 &currency=USD"></script>
@@ -204,7 +203,7 @@ may only contain letters, numbers, and underscores</div>        </div>        <d
           return actions.order.create({
             purchase_units: [{
               amount: {
-                value: 'product-45-47' // Can also reference a variable or function
+                value: 'data-second_price' // Can also reference a variable or function
               }
             }]
           });
