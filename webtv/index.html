@@ -1,0 +1,108 @@
+
+<!-- Mirrored from watchsuntv.com/webtv/ by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Nov 2022 15:41:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<body onresize='AdjustP()'> 
+<iframe id='webtv' src="https://iptvbase.net/webtv/Browsers/watchsun120/121/" style='position:fixed;top:0;left:0;width:100vw;height:100vh;border:0px;' frameborder="0"></iframe>
+<div style='position:absolute;'><div id='videopanel1'></div></div>
+</body>
+
+<script type='text/javascript' src='../../cdn.jwplayer.com/libraries/fx81JCMA.js'></script>
+<script language='javascript'> 
+var gPlayerReady=0;
+var gPlayerInstance;
+
+if (window.addEventListener) window.addEventListener("message", onMessage, false);        
+else if (window.attachEvent) window.attachEvent("onmessage", onMessage, false);
+
+function M1(jobj)  { document.getElementById('webtv').contentWindow.postMessage( jobj, "https://iptvbase.net/"); }
+function M(action) { M1( {'action': action }); }
+function AdjustP()
+{
+    console.log('AdjustP: '+gPlayerReady);
+    if (gPlayerReady==1) M('getVPPos');
+}
+
+function ResizePlayer_(t,l,w,h)
+{
+    var obj = document.getElementById('videopanel1').parentElement;
+    obj.style.top = t + 'px';
+    obj.style.left = l + 'px';
+    obj.style.width = w + 'px';
+    obj.style.height = h + 'px';
+}
+
+function onMessage(event) {
+    // Check sender origin to be trusted
+    if (event.origin !== "http://iptvbase.net" && event.origin !== "https://iptvbase.net/") return;
+
+    var cwObj=document.getElementById('webtv').contentWindow;
+    var data = event.data;
+    console.log(event.data);
+
+    if (data.action=='playVideo') 
+    {    
+        ResizePlayer_(data.sz.top, data.sz.left, data.sz.width, data.sz.height);
+        gPlayerInstance = jwplayer("videopanel1");
+        gPlayerInstance.setup({ file: data.file, image: data.image, controlbar: "bottom", autostart: true, primary: 'html5', width: data.sz.width, height: data.sz.height, cast: {} });
+        gPlayerInstance.on('ready', function(event) { 
+            gPlayerReady=1;
+            M('PlayerStarted');
+            gPlayerInstance.on('pause',    function() { M('pause'); });
+            gPlayerInstance.on('complete', function() { M('stop');  }); 
+            gPlayerInstance.on('play',     function() { M('play');  }); 
+            gPlayerInstance.on('buffer',   function() { } ); 
+        });
+    }
+    else if (data.action=='stopVideo') 
+    {    
+        var pos = gPlayerInstance.getPosition();
+        gPlayerReady=0;
+        gPlayerInstance.stop();
+        gPlayerInstance.remove();
+        M1( {'action':'stopped', 'pos':pos, 'm':data.m });
+        ResizePlayer_(0, 0, 0, 0);
+        gPlayerInstance.resize(0, 0);
+    }
+    else if (data.action=='resizePlayer')
+    {
+        ResizePlayer_(data.sz.top, data.sz.left, data.sz.width, data.sz.height);
+        gPlayerInstance.resize(data.sz.width, data.sz.height);
+    }
+    else if (data.action=='openfullscreen')
+    {
+        openFullscreen();
+    }
+    else if (data.action=='closefullscreen')
+    {
+        closeFullscreen();
+    }
+}
+
+function openFullscreen() 
+{
+    var elem = document.documentElement;
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+    elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+    elem.msRequestFullscreen();
+    }
+}
+
+function closeFullscreen() 
+{
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.mozCancelFullScreen) { /* Firefox */
+    document.mozCancelFullScreen();
+  } else if (document.webkitExitFullscreen) { /* Chrome, Safari and Opera */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE/Edge */
+    document.msExitFullscreen();
+  }
+}
+
+</script>
