@@ -181,117 +181,28 @@ may only contain letters, numbers, and underscores</div>        </div>        <d
 
 
 
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>PayPal Standard Payments Integration | Client Demo</title>
-      </head>
 
-      <body>
-        <div id="paypal-button-container"></div>
-        <!-- Sample PayPal credentials (client-id) are included -->
-        <script src="https://www.paypal.com/sdk/js?client-id=AS9crqxgFvh3z1t7YSDHY4qU4hNijBR8VmSG_ydy92kk6yGXmqkL4lGQa0gc1imzjAaj51Ae&currency=USD&vault=true&intent=subscription" data-sdk-integration-source="integrationbuilder"></script>
-
-        <script>
-          const fundingSources = [
-              paypal.FUNDING.PAYPAL,
-              paypal.FUNDING.CREDIT,
-              paypal.FUNDING.CARD
-          ];
-
-          for (const fundingSource of fundingSources) {
-              const paypalButtonsComponent = paypal.Buttons({
-                  fundingSource: fundingSource,
-
-                  // optional styling for buttons
-                  // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
-
-                  style: {
-                      shape: "rect",
-                      height: 40,
-                      label: "subscribe"
-                  },
-
-                  // set up the recurring transaction
-                  createSubscription: (data, actions) => {
-                      // replace with your subscription plan id
-                      // https://developer.paypal.com/docs/subscriptions/#link-createplan
-                      return actions.subscription.create({
-                          plan_id: "P-3RX065706M3469222L5IFM4I"
-                      });
-                  },
-
-                  // notify the buyer that the subscription is successful
-                  onApprove: (data, actions) => {
-
-                  },
-
-                  // handle unrecoverable errors
-                  onError: (err) => {
-
-                  }
-              });
-
-              if (paypalButtonsComponent.isEligible()) {
-                  paypalButtonsComponent
-                      .render("#paypal-button-container")
-                      .catch((err) => {
-
-                      });
-              }
-          }
-        </script>
-      </body>
-    </html>
-
-    
-
-        <!DOCTYPE html>
-<html>
-  <head> <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-MN722R8');</script>
-	<!-- End Google Tag Manager -->	
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-  </head>
-    <!-- Replace "test" with your own sandbox Business account app client ID -->
-    <script src="https://www.paypal.com/sdk/js?client-id=AS9crqxgFvh3z1t7YSDHY4qU4hNijBR8VmSG_ydy92kk6yGXmqkL4lGQa0gc1imzjAaj51Ae-jIvfE9V&currency=USD"></script>
-    <!-- Set up a container element for the button -->
-    <div id="paypal-button-container"></div>
-    <script>
-      paypal.Buttons({
-        // Sets up the transaction when a payment button is clicked
-        createOrder: (data, actions) => {
-          return actions.order.create({
-            purchase_units: [{
-              amount: {
-                value: 'data-second_price' // Can also reference a variable or function
-              }
-            }]
-          });
-        },
-        // Finalize the transaction after payer approval
-        onApprove: (data, actions) => {
-          return actions.order.capture().then(function(orderData) {
-            // Successful capture! For dev/demo purposes:
-            console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-            const transaction = orderData.purchase_units[0].payments.captures[0];
-            alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
-            // When ready to go live, remove the alert and show a success message within this page. For example:
-            // const element = document.getElementById('paypal-button-container');
-            // element.innerHTML = '<h3>Thank you for your payment!</h3>';
-            // Or go to another URL:  actions.redirect('thank_you.html');
-          });
-        }
-      }).render('#paypal-button-container');
-    </script>
-  </body>
-<!-- </html> -->
+    <div id="paypal-button-container-P-07X66844KP221525VMOF6FHQ"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=AYtfW0BcRSw_41BhTQl_xabPZuKIrUESmbrNZdR1kynVs5J7hl8YrJOEfweo3BVAyLecITQggv1IArYd&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'black',
+          layout: 'horizontal',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-07X66844KP221525VMOF6FHQ'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-07X66844KP221525VMOF6FHQ'); // Renders the PayPal button
+</script>
 
 
 
