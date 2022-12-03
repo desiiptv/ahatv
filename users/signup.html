@@ -167,10 +167,13 @@ Live TV | Catch UP | Movies | TV Serials | TV Shows | Cricket | IPL Matches | Ne
 may only contain letters, numbers, and underscores</div>        </div>        <div class="am-element element">        <input type="text" size="30" maxlength="32" name="login" id="login-0" placeholder="Choose a Username" />            </div></div>
 <div class="am-row row" id="row-pass-0">                <div class="am-element-title element-title">            <label for="pass-0">            <span class="required">* </span>            Choose a Password            </label>            <div class="comment">must be 6 or more characters</div>        </div>        <div class="am-element element">        <input type="password" size="30" autocomplete="off" maxlength="32" class="am-pass-indicator" name="pass" id="pass-0" placeholder="Choose a Password" />            </div></div>
 <div class="am-row row" id="row-pass-confirm">                <div class="am-element-title element-title">            <label for="pass-confirm">            <span class="required">* </span>            Confirm Your Password            </label>                    </div>        <div class="am-element element">        <input type="password" size="30" autocomplete="off" maxlength="32" name="_pass" id="pass-confirm" placeholder="Confirm Your Password" />            </div></div>
+<div class="am-row row" id="row-coupon-0">                <div class="am-element-title element-title">            <label for="coupon-0">                        Enter MAC Address            </label>                    </div>        <div class="am-element element">        <input type="text" name="coupon" id="coupon-0" placeholder="Enter your MAC ADDRESS (00:1A:79:xx:xx:xx)" />            </div></div>
 <div class="am-row row" id="row-coupon-0">                <div class="am-element-title element-title">            <label for="coupon-0">                        Enter coupon code            </label>                    </div>        <div class="am-element element">        <input type="text" name="coupon" id="coupon-0" placeholder="Enter coupon code" />            </div></div>
-<div class="am-row row" id="row-grp-captcha">                <div class="am-element-title element-title">            <label for="grp-captcha">                        Anti Spam            </label>                    </div>        <div class="am-element element group">        <script src="https://www.google.com/recaptcha/enterprise.js?render=6Ld64VIjAAAAANAGkRKuogmzA7_60aWjJ2fKTklX"></script>
-     <script type="text/javascript" src="./../www.google.com/recaptcha/apifef7.js?hl=en" async defer></script>
-        <div class="g-recaptcha" data-sitekey="6Ld64VIjAAAAANAGkRKuogmzA7_60aWjJ2fKTklX" data-theme="light" data-size="normal" ></div>            </div></div>
+<div class="am-row row" id="row-grp-captcha">                <div class="am-element-title element-title">            <label for="grp-captcha">                        Anti Spam            </label>                    </div>        <div class="am-element element group">  
+    
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6Ld64VIjAAAAANAGkRKuogmzA7_60aWjJ2fKTklX"></script>
+    <script type="text/javascript" src="./../www.google.com/recaptcha/apifef7.js?hl=en" async defer></script>
+    <div class="g-recaptcha" data-sitekey="6Ld64VIjAAAAANAGkRKuogmzA7_60aWjJ2fKTklX" data-theme="light" data-size="normal" ></div></div></div>
 
 
 
@@ -187,7 +190,8 @@ may only contain letters, numbers, and underscores</div>        </div>        <d
   </head>
   <body>
     <!-- Replace "test" with your own sandbox Business account app client ID -->
-    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=USD"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AS9crqxgFvh3z1t7YSDHY4qU4hNijBR8VmSG_ydy92kk6yGXmqkL4lGQa0gc1imzjAaj51Ae-jIvfE9V
+&currency=USD"></script>
     <!-- Set up a container element for the button -->
     <div id="paypal-button-container"></div>
     <script>
@@ -197,7 +201,7 @@ may only contain letters, numbers, and underscores</div>        </div>        <d
           return actions.order.create({
             purchase_units: [{
               amount: {
-                value: '77.44' // Can also reference a variable or function
+                value: 'product-45-47' // Can also reference a variable or function
               }
             }]
           });
@@ -223,7 +227,12 @@ may only contain letters, numbers, and underscores</div>        </div>        <d
 
 
 
-<div class="am-row row" id="row-buttons">            <div class="am-element element group">        <input type="submit" value="Next" class="am-cta-signup" name="_qf_page-0_next" id="_qf_page-0_next-0" />            </div></div><input type="image" id="_qf_default" width="1" height="1" src="data:image/gif;base64,R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=" name="_qf_page-0_next" style="display: none;" /><input type="hidden" name="_save_" id="_save_-0" value="page-0" /></form>    </div>
+<div class="am-row row" id="row-buttons">         
+       <div class="am-element element group">       
+         <input type="submit" value="Next" class="am-cta-signup" name="_qf_page-0_next" id="_qf_page-0_next-0" />   
+                  </div></div>
+                  <input type="image" id="_qf_default" width="1" height="1" src="data:image/gif;base64,R0lGODdhAQABAIAAAP///////ywAAAAAAQABAAACAkQBADs=" name="_qf_page-0_next" style="display: none;" />
+<input type="hidden" name="_save_" id="_save_-0" value="page-0" /></form>    </div>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
     if (jQuery && jQuery.validator)
