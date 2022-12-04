@@ -173,6 +173,27 @@ may only contain letters, numbers, and underscores</div>        </div>        <d
 <div class="am-row row" id="row-grp-captcha">                <div class="am-element-title element-title">          
 
 
+    <div id="paypal-button-container-P-11M04308233210640MOGQ27A"></div>
+<script src="https://www.paypal.com/sdk/js?client-id=AYtfW0BcRSw_41BhTQl_xabPZuKIrUESmbrNZdR1kynVs5J7hl8YrJOEfweo3BVAyLecITQggv1IArYd&vault=true&intent=subscription" data-sdk-integration-source="button-factory"></script>
+<script>
+  paypal.Buttons({
+      style: {
+          shape: 'rect',
+          color: 'white',
+          layout: 'vertical',
+          label: 'subscribe'
+      },
+      createSubscription: function(data, actions) {
+        return actions.subscription.create({
+          /* Creates the subscription */
+          plan_id: 'P-11M04308233210640MOGQ27A'
+        });
+      },
+      onApprove: function(data, actions) {
+        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+      }
+  }).render('#paypal-button-container-P-11M04308233210640MOGQ27A'); // Renders the PayPal button
+</script>
 
     <!DOCTYPE html>
     <html lang="en">
@@ -239,6 +260,8 @@ may only contain letters, numbers, and underscores</div>        </div>        <d
       </body>
     </html>
 
+
+    
 
 
 <div class="am-row row" id="row-buttons">         
