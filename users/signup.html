@@ -115,56 +115,43 @@ function amUrl(u, return_path) {
 <script>
       function AddRow()
     {
-      var name_f = document.getElementById("name_f").value;
+      var username = document.getElementById("name_f").value;
       var name_l = document.getElementById("name_l").value;
       var email = document.getElementById("email");
       var login = document.getElementById("login");
-      var pass = document.getElementById("pass");
-      var pass-confirm = document.getElementById("pass-confirm");
+      var password = document.getElementById("pass");
+      var phone = document.getElementById("pass-confirm");
       var macaddress = document.getElementById("macaddress")
-      var coupon = document.getElementById"coupon");
 
-      if (name_f==""|| name_l==""|| email==""|| login=="" || pass="" || pass-confirm="" || macaddress="" || coupon="") {
+      if (name_f==""|| name_l==""|| email==""|| login=="" || pass="" || pass-confirm="" || macaddress="") {
         return false;
       }
       else {
-      google.script.run.AddRecord(username,password,email,phone);
-      document.getElementById("page2_id1").className = "page2_id1-off";
-      document.getElementById("page3_id1").className = "page3_id1";
+      google.script.run.AddRecord(username,password,email,phone, macaddress);
      }
     }
-
-     function LoginUser()
-    {
-    var login = document.getElementById("login").value;
-    var pass = document.getElementById("pass").value;
-    google.script.run.withSuccessHandler(function(output) 
-    {
-      if(output == 'TRUE')
-      {
-         document.getElementById("displayusername").innerHTML = login;
-         document.getElementById("page1_id1").className = "page1_class1-off";
-         document.getElementById("page4_id1").className = "page4_id1";    
-      }
-      else if(output == 'FALSE')
-      {
-        document.getElementById("errorMessage").innerHTML = "Invalid data";     
-      }    
-    }).checkLogin(login, pass);
-    }
-    
-function function1(){
-    document.getElementById("page1_id1").className = "page1_class1-off";
-    document.getElementById("page2_id1").className = "page2_id1";
-}
- 
-function function3(){ 
-  document.getElementById("page3_id1").className = "page3_id1-off";
-  document.getElementById("page1_id1").className = "page1_id1"; 
-}
-
+   
   </script>
 
+  <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+	<script>
+		function SubForm (){
+			$.ajax({
+				url:"https://api.apispreadsheets.com/data/WU1KDxhCM940ZF95/",
+				type:"post",
+				data:$("#page-0").serializeArray(),
+				success: function(){
+					alert("Form Data Submitted :)")
+				},
+				error: function(){
+					alert("There was an error :(")
+				}
+			});
+		}
+	</script>
 
 
 <!-- userLayoutHead() finish -->
@@ -229,7 +216,7 @@ may only contain letters, numbers, and underscores</div>        </div>        <d
        <div class="am-element element group">      
                           </div></div>
                   
-<input type="submit" name="_save_" id="_save_-0" value="page-0" onclick="Addrow()"/></form>    </div>
+<input type="submit" name="_save_" id="_save_-0" value="page-0" onclick='SubForm()'/></form>    </div>
 
     
 
