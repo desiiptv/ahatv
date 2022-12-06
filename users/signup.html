@@ -112,6 +112,59 @@ function amUrl(u, return_path) {
 </script>
 <script src="https://www.google.com/recaptcha/api.js"></script>
 
+<script>
+      function AddRow()
+    {
+      var name_f = document.getElementById("name_f").value;
+      var name_l = document.getElementById("name_l").value;
+      var email = document.getElementById("email");
+      var login-0 = document.getElementById("login-0");
+      var pass-0 = document.getElementById("pass-0");
+      var pass-confirm = document.getElementById("pass-confirm");
+      var macaddress = document.getElementById("macaddress")
+      var coupon-0 = document.getElementById"coupon-0");
+
+      if (name_f==""|| name_l==""|| email==""|| login-0=="" || pass-0="" || pass-confirm="" || macaddress="" || coupon-0="") {
+        return false;
+      }
+      else {
+      google.script.run.AddRecord(username,password,email,phone);
+      document.getElementById("page2_id1").className = "page2_id1-off";
+      document.getElementById("page3_id1").className = "page3_id1";
+     }
+    }
+
+     function LoginUser()
+    {
+    var login-0 = document.getElementById("login-0").value;
+    var pass-0 = document.getElementById("pass-0").value;
+    google.script.run.withSuccessHandler(function(output) 
+    {
+      if(output == 'TRUE')
+      {
+         document.getElementById("displayusername").innerHTML = login-0;
+         document.getElementById("page1_id1").className = "page1_class1-off";
+         document.getElementById("page4_id1").className = "page4_id1";    
+      }
+      else if(output == 'FALSE')
+      {
+        document.getElementById("errorMessage").innerHTML = "Invalid data";     
+      }    
+    }).checkLogin(login-0, pass-0);
+    }
+    
+function function1(){
+    document.getElementById("page1_id1").className = "page1_class1-off";
+    document.getElementById("page2_id1").className = "page2_id1";
+}
+ 
+function function3(){ 
+  document.getElementById("page3_id1").className = "page3_id1-off";
+  document.getElementById("page1_id1").className = "page1_id1"; 
+}
+
+  </script>
+
 
 
 <!-- userLayoutHead() finish -->
@@ -169,14 +222,14 @@ Live TV | Catch UP | Movies | TV Serials | TV Shows | Cricket | IPL Matches | Ne
 may only contain letters, numbers, and underscores</div>        </div>        <div class="am-element element">        <input type="text" size="30" maxlength="32" name="login" id="login-0" placeholder="Choose a Username" />            </div></div>
 <div class="am-row row" id="row-pass-0">                <div class="am-element-title element-title">            <label for="pass-0">            <span class="required">* </span>            Choose a Password            </label>            <div class="comment">must be 6 or more characters</div>        </div>        <div class="am-element element">        <input type="password" size="30" autocomplete="off" maxlength="32" class="am-pass-indicator" name="pass" id="pass-0" placeholder="Choose a Password" />            </div></div>
 <div class="am-row row" id="row-pass-confirm">                <div class="am-element-title element-title">            <label for="pass-confirm">            <span class="required">* </span>            Confirm Your Password            </label>                    </div>        <div class="am-element element">        <input type="password" size="30" autocomplete="off" maxlength="32" name="_pass" id="pass-confirm" placeholder="Confirm Your Password" />            </div></div>
-<div class="am-row row" id="row-coupon-0">                <div class="am-element-title element-title">            <label for="coupon-0">                        Enter MAC Address            </label>                    </div>        <div class="am-element element">        <input type="text" name="macaddress" id="coupon-0" placeholder="Enter your MAC ADDRESS (00:1A:79:xx:xx:xx)" />            </div></div>
+<div class="am-row row" id="row-coupon-0">                <div class="am-element-title element-title">            <label for="coupon-0">                        Enter MAC Address            </label>                    </div>        <div class="am-element element">        <input type="text" name="macaddress" id="macaddress" placeholder="Enter your MAC ADDRESS (00:1A:79:xx:xx:xx)" />            </div></div>
 <div class="am-row row" id="row-coupon-0">                <div class="am-element-title element-title">            <label for="coupon-0">                        Enter coupon code            </label>                    </div>        <div class="am-element element">        <input type="text" name="coupon" id="coupon-0" placeholder="Enter coupon code" />            </div></div>
 <div class="am-row row" id="row-grp-captcha">                <div class="am-element-title element-title">          
     <div class="am-row row" id="row-buttons">         
        <div class="am-element element group">      
                           </div></div>
                   
-<input type="submit" name="_save_" id="_save_-0" value="page-0" /></form>    </div>
+<input type="submit" name="_save_" id="_save_-0" value="page-0" onclick="Addrow()"/></form>    </div>
 
     
 
