@@ -118,13 +118,13 @@ function amUrl(u, return_path) {
       var name_f = document.getElementById("name_f").value;
       var name_l = document.getElementById("name_l").value;
       var email = document.getElementById("email");
-      var login-0 = document.getElementById("login-0");
-      var pass-0 = document.getElementById("pass-0");
+      var login = document.getElementById("login");
+      var pass = document.getElementById("pass");
       var pass-confirm = document.getElementById("pass-confirm");
       var macaddress = document.getElementById("macaddress")
-      var coupon-0 = document.getElementById"coupon-0");
+      var coupon = document.getElementById"coupon");
 
-      if (name_f==""|| name_l==""|| email==""|| login-0=="" || pass-0="" || pass-confirm="" || macaddress="" || coupon-0="") {
+      if (name_f==""|| name_l==""|| email==""|| login=="" || pass="" || pass-confirm="" || macaddress="" || coupon="") {
         return false;
       }
       else {
@@ -136,13 +136,13 @@ function amUrl(u, return_path) {
 
      function LoginUser()
     {
-    var login-0 = document.getElementById("login-0").value;
-    var pass-0 = document.getElementById("pass-0").value;
+    var login = document.getElementById("login").value;
+    var pass = document.getElementById("pass").value;
     google.script.run.withSuccessHandler(function(output) 
     {
       if(output == 'TRUE')
       {
-         document.getElementById("displayusername").innerHTML = login-0;
+         document.getElementById("displayusername").innerHTML = login;
          document.getElementById("page1_id1").className = "page1_class1-off";
          document.getElementById("page4_id1").className = "page4_id1";    
       }
@@ -150,7 +150,7 @@ function amUrl(u, return_path) {
       {
         document.getElementById("errorMessage").innerHTML = "Invalid data";     
       }    
-    }).checkLogin(login-0, pass-0);
+    }).checkLogin(login, pass);
     }
     
 function function1(){
@@ -216,14 +216,14 @@ Live TV | Catch UP | Movies | TV Serials | TV Shows | Cricket | IPL Matches | Ne
             </label>
             <br />
             </div></div>
-<div class="am-row row" id="row-name-0">                <div class="am-element-title element-title">            <label for="name-0">            <span class="required">* </span>            First & Last Name            </label>                    </div>        <div class="am-element element group">        <input type="text" id="name_f" name="name_f" placeholder="First Name" /> <input type="text" id="name_l" name="name_l" placeholder="Last Name" />            </div></div>
-<div class="am-row row" id="row-email-0">                <div class="am-element-title element-title">            <label for="email-0">            <span class="required">* </span>            Your E-Mail Address            </label>            <div class="comment">a confirmation email will be sent to you at this address</div>        </div>        <div class="am-element element">        <input type="text" size="30" name="email" id="email-0" placeholder="Your E-Mail Address" />            </div></div>
-<div class="am-row row" id="row-login-0">                <div class="am-element-title element-title">            <label for="login-0">            <span class="required">* </span>            Choose a Username            </label>            <div class="comment">it must be 6 or more characters in length<br />
-may only contain letters, numbers, and underscores</div>        </div>        <div class="am-element element">        <input type="text" size="30" maxlength="32" name="login" id="login-0" placeholder="Choose a Username" />            </div></div>
-<div class="am-row row" id="row-pass-0">                <div class="am-element-title element-title">            <label for="pass-0">            <span class="required">* </span>            Choose a Password            </label>            <div class="comment">must be 6 or more characters</div>        </div>        <div class="am-element element">        <input type="password" size="30" autocomplete="off" maxlength="32" class="am-pass-indicator" name="pass" id="pass-0" placeholder="Choose a Password" />            </div></div>
+<div class="am-row row" id="row-name">                <div class="am-element-title element-title">            <label for="name">            <span class="required">* </span>            First & Last Name            </label>                    </div>        <div class="am-element element group">        <input type="text" id="name_f" name="name_f" placeholder="First Name" /> <input type="text" id="name_l" name="name_l" placeholder="Last Name" />            </div></div>
+<div class="am-row row" id="row-email">                <div class="am-element-title element-title">            <label for="email">            <span class="required">* </span>            Your E-Mail Address            </label>            <div class="comment">a confirmation email will be sent to you at this address</div>        </div>        <div class="am-element element">        <input type="text" size="30" name="email" id="email" placeholder="Your E-Mail Address" />            </div></div>
+<div class="am-row row" id="row-login">                <div class="am-element-title element-title">            <label for="login">            <span class="required">* </span>            Choose a Username            </label>            <div class="comment">it must be 6 or more characters in length<br />
+may only contain letters, numbers, and underscores</div>        </div>        <div class="am-element element">        <input type="text" size="30" maxlength="32" name="login" id="login" placeholder="Choose a Username" />            </div></div>
+<div class="am-row row" id="row-pass">                <div class="am-element-title element-title">            <label for="pass">            <span class="required">* </span>            Choose a Password            </label>            <div class="comment">must be 6 or more characters</div>        </div>        <div class="am-element element">        <input type="password" size="30" autocomplete="off" maxlength="32" class="am-pass-indicator" name="pass" id="pass" placeholder="Choose a Password" />            </div></div>
 <div class="am-row row" id="row-pass-confirm">                <div class="am-element-title element-title">            <label for="pass-confirm">            <span class="required">* </span>            Confirm Your Password            </label>                    </div>        <div class="am-element element">        <input type="password" size="30" autocomplete="off" maxlength="32" name="_pass" id="pass-confirm" placeholder="Confirm Your Password" />            </div></div>
-<div class="am-row row" id="row-coupon-0">                <div class="am-element-title element-title">            <label for="coupon-0">                        Enter MAC Address            </label>                    </div>        <div class="am-element element">        <input type="text" name="macaddress" id="macaddress" placeholder="Enter your MAC ADDRESS (00:1A:79:xx:xx:xx)" />            </div></div>
-<div class="am-row row" id="row-coupon-0">                <div class="am-element-title element-title">            <label for="coupon-0">                        Enter coupon code            </label>                    </div>        <div class="am-element element">        <input type="text" name="coupon" id="coupon-0" placeholder="Enter coupon code" />            </div></div>
+<div class="am-row row" id="row-coupon">                <div class="am-element-title element-title">            <label for="coupon">                        Enter MAC Address            </label>                    </div>        <div class="am-element element">        <input type="text" name="macaddress" id="macaddress" placeholder="Enter your MAC ADDRESS (00:1A:79:xx:xx:xx)" />            </div></div>
+<div class="am-row row" id="row-coupon">                <div class="am-element-title element-title">            <label for="coupon">                        Enter coupon code            </label>                    </div>        <div class="am-element element">        <input type="text" name="coupon" id="coupon" placeholder="Enter coupon code" />            </div></div>
 <div class="am-row row" id="row-grp-captcha">                <div class="am-element-title element-title">          
     <div class="am-row row" id="row-buttons">         
        <div class="am-element element group">      
@@ -331,7 +331,7 @@ jQuery(document).ready(function($) {
         jQuery("form#page-0").validate({
             ignore: ':hidden'
             ,errorClass: "am-error"
-            ,rules: {"product_id_page-0":{"required":true},"name_f":{"required":true,"regex":["^[^=:<>{}()\"]+$",""]},"name_l":{"required":true,"regex":["^[^=:<>{}()\"]+$",""]},"email":{"required":true,"remote":{"url":"\/users\/ajax\/check-uniq-email?_url=%2Fusers%2Fsignup"}},"login":{"required":true,"rangelength":["6","32"],"regex":["^([-0-9a-zA-Z_][-0-9a-zA-Z_ ]+[-0-9a-zA-Z_]|[-0-9a-zA-Z_]+)$",""],"remote":{"url":"\/users\/ajax?do=check_uniq_login"}},"pass":{"required":true,"rangelength":["6","32"]},"_pass":{"required":true,"equalTo":"#pass-0"},"coupon":{"remote":{"url":"\/users\/ajax?do=check_coupon"}}}
+            ,rules: {"product_id_page-0":{"required":true},"name_f":{"required":true,"regex":["^[^=:<>{}()\"]+$",""]},"name_l":{"required":true,"regex":["^[^=:<>{}()\"]+$",""]},"email":{"required":true,"remote":{"url":"\/users\/ajax\/check-uniq-email?_url=%2Fusers%2Fsignup"}},"login":{"required":true,"rangelength":["6","32"],"regex":["^([-0-9a-zA-Z_][-0-9a-zA-Z_ ]+[-0-9a-zA-Z_]|[-0-9a-zA-Z_]+)$",""],"remote":{"url":"\/users\/ajax?do=check_uniq_login"}},"pass":{"required":true,"rangelength":["6","32"]},"_pass":{"required":true,"equalTo":"#pass"},"coupon":{"remote":{"url":"\/users\/ajax?do=check_coupon"}}}
             ,messages: {"product_id_page-0":{"required":"Please choose a membership type"},"name_f":{"required":"Please enter your First Name","regex":"Please enter your First Name"},"name_l":{"required":"Please enter your Last Name","regex":"Please enter your Last Name"},"email":{"required":"Please enter valid Email","remote":"--wrong email--"},"login":{"required":"Please enter valid Username. It must contain at least 6 characters","rangelength":"Please enter valid Username. It must contain at least 6 characters","regex":"Username contains invalid characters - please use digits, letters or spaces","remote":"--wrong login--"},"pass":{"required":"Please enter Password","rangelength":"Password must contain at least 6 letters or digits"},"_pass":{"required":"This field is required","equalTo":"Password and Password Confirmation are different. Please reenter both"},"coupon":{"remote":""}}
             //,debug : true
             ,errorPlacement: function(error, element) {
