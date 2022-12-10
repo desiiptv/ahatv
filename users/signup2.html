@@ -128,7 +128,21 @@
     </script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
-  
+    <script>
+        var form = document.getElementById('page-0');
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            fetch(form.action, {
+                method: "POST",
+                body: new FormData(document.getElementById("page-0")),
+            }).then(
+                response => response.json()
+            ).then((html) => {
+                // you can put any JS code here
+                window.alert("Signup successful. Please continue on payment");
+            });
+        });
+    </script>
 
 
 
@@ -159,10 +173,8 @@
                     <div class="am-body-content-top">
                         <h1>Signup Form</h1>
                     </div>
-
                     <div class="am-body-content-content">
                         <!-- content starts here -->
-
                         <div class="am-signup">
                             <!-- login box on signup page widget -->
                             <div class="am-info am-login-text">If you already have an account on our website, please <a
@@ -171,29 +183,9 @@
                             <!-- login box on signup page widget end -->
 
                             <div class="invoice-summary" data-show-terms="false"></div>
-                            <div class="am-form ">
-                                    <div class="am-row row" id="row-product_id_page-0-0">
-                                        <div class="am-element element"> <label for='product-45-47'>
-                                                <span class="am-product-title" id="am-product-title-45-47">
-                                                    Signup Successful. 
-                                                    please continue making payment. you will get an confirmation shortly.</span> 
-                                            </div>
-                                    </div>
-                              
-                                            
-                            
                             
 
-
-                    </div>
-                </div>
-             
-            </div>
-        </div>
-    </div>  
-
-
-    <!DOCTYPE html>
+                            <!DOCTYPE html>
                             <html lang="en">
 
                             <head>
@@ -224,7 +216,7 @@
 
                                             style: {
                                                 shape: "pill",
-                                                height: 20,
+                                                height: 40,
                                                 label: "subscribe"
                                             },
 
@@ -272,7 +264,6 @@
                                         },
                                         onApprove: function (data, actions) {
                                             alert(data.subscriptionID); // You can add optional success message for the subscriber here
-                                            
                                         }
                                     }).render('#paypal-button-container-P-3KC78992LW428500EMOGWW5Y'); // Renders the PayPal button
                                 </script>
@@ -280,6 +271,103 @@
 
                             </html>
 
+
+                            <script type="text/javascript">
+                                jQuery(document).ready(function ($) {
+                                    if (jQuery && jQuery.validator) {
+                                        jQuery.validator.addMethod("regex", function (value, element, params) {
+                                            return this.optional(element) || new RegExp(params[0], params[1]).test(value);
+                                        }, "Invalid Value");
+
+                                        jQuery.validator.addMethod("requiredms", function (value, element, params) {
+                                            return this.optional(element) || jQuery(element).closest('div').find('input[type=hidden]').length() > 0
+                                        }, "This field is required.");
+
+                                        jQuery("form#page-0").validate({
+                                            ignore: ':hidden'
+                                            , errorClass: "am-error"
+                                            , rules: { "product_id_page-0": { "required": true }, "name_f": { "required": true, "regex": ["^[^=:<>{}()\"]+$", ""] }, "name_l": { "required": true, "regex": ["^[^=:<>{}()\"]+$", ""] }, "email": { "required": true, "remote": { "url": "\/users\/ajax\/check-uniq-email?_url=%2Fusers%2Fsignup" } }, "login": { "required": true, "rangelength": ["6", "32"], "regex": ["^([-0-9a-zA-Z_][-0-9a-zA-Z_ ]+[-0-9a-zA-Z_]|[-0-9a-zA-Z_]+)$", ""], "remote": { "url": "\/users\/ajax?do=check_uniq_login" } }, "pass": { "required": true, "rangelength": ["6", "32"] }, "_pass": { "required": true, "equalTo": "#pass" }, "coupon": { "remote": { "url": "\/users\/ajax?do=check_coupon" } } }
+                                            , messages: { "product_id_page-0": { "required": "Please choose a membership type" }, "name_f": { "required": "Please enter your First Name", "regex": "Please enter your First Name" }, "name_l": { "required": "Please enter your Last Name", "regex": "Please enter your Last Name" }, "email": { "required": "Please enter valid Email", "remote": "--wrong email--" }, "login": { "required": "Please enter valid Username. It must contain at least 6 characters", "rangelength": "Please enter valid Username. It must contain at least 6 characters", "regex": "Username contains invalid characters - please use digits, letters or spaces", "remote": "--wrong login--" }, "pass": { "required": "Please enter Password", "rangelength": "Password must contain at least 6 letters or digits" }, "_pass": { "required": "This field is required", "equalTo": "Password and Password Confirmation are different. Please reenter both" }, "coupon": { "remote": "" } }
+                                            //,debug : true
+                                            , errorPlacement: function (error, element) {
+                                                error.appendTo(element.parent());
+                                            }
+                                            , submitHandler: function (form, event) {
+                                                event.stopPropagation();
+                                                var ev = jQuery.Event("amFormSubmit", {
+                                                    originalEvent: event,
+                                                    callback: function () {
+                                                        form.submit();
+                                                    }
+                                                });
+                                                // function shall replace callback to your own code
+                                                jQuery(form).trigger(ev);
+                                                if (ev.callback)
+                                                    ev.callback();
+                                            }
+                                            // custom validate js code start
+
+                                            , errorElement: "span"
+                                            // custom validate js code end
+                                        });
+                                    }
+                                    // custom js code start
+
+                                    // custom js code end
+                                });
+                            </script>
+                        </div>
+                        <script type="text/javascript">
+                            // this file is here for compatibility only
+                            document.querySelectorAll('form')
+                                .forEach(function (form) { amCountryState.initDefaults(form); });
+                        </script>
+                    </div>
+                </div>
+                <div id="am-flash" class="am-flash">
+                    <div class="am-flash-mask"></div>
+                    <div class="am-flash-content"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="am-footer">
+        <div class="am-footer-content-wrapper am-main">
+            <div class="am-footer-content">
+                <div class="am-footer-actions">
+                    <a href="#top" id="am-action-move-to-top"></a>
+                </div>
+
+                <div class="am-footer-content-content">
+                    <div class="am-footer-text">Copyrights &copy; 2022 All Rights Reserved by Watch Aha TV</div>
+                    <div class="am-footer-sm">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" id='am-ctcs-v1'>
+        (function () {
+            var url = (("https:" == document.location.protocol) ?
+                "https:\/\/watchahatv.com\/users\/aff\/click-js\/" : "https:\/\/watchahatv.com\/users\/aff\/click-js\/");
+            var d = document, s = d.createElement('script'), src = d.getElementsByTagName('script')[0];
+            var w = window; var lo = w.location; var hr = lo.href; var ho = lo.host; var se = lo.search;
+            var m = RegExp('[?&]ref=([^&]*)').exec(se);
+            var k = RegExp('[?&]keyword=([^&]*)').exec(se);
+            var ref = m && decodeURIComponent(m[1].replace(/\+/g, ' '));
+            var keyword = k && k[1];
+            s.type = 'text/javascript'; s.async = true;
+            var jssrc = url + '?r=' + ref + '&s=' + encodeURIComponent(document.referrer);
+            if (k) jssrc = jssrc + '&keyword=' + keyword;
+            s.src = jssrc;
+            if (ref) {
+                src.parentNode.insertBefore(s, src); var uri = hr.toString().split(ho)[1];
+                uri = uri.replace(m[0], "");
+                if (k) uri = uri.replace(k[0], "");
+                w.history.replaceState('Object', 'Title', uri);
+            }
+        })();
+    </script>
 </body>
 
 <!-- Mirrored from watchahatv.com/users/signup by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Nov 2022 15:41:02 GMT -->
