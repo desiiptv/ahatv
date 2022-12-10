@@ -129,18 +129,20 @@
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
 <script type="text/javascript">
-  var form = document.getElementById('page-0');
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-    fetch(form.action, {
-        method : "POST",
-        body: new FormData(document.getElementById("page-0")),
-    }).then(
-        response => response.json()
-    ).then((html) => {
-      alert('success signup. please continue...')
-    });
-  });
+    function submitForm() {
+        var form = document.getElementById('page-0');
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            fetch(form.action, {
+                method : "POST",
+                body: new FormData(document.getElementById("page-0")),
+            }).then(
+                response => response.json()
+            ).then((html) => {
+            alert('success signup. please continue...')
+            });
+        });
+}
 </script>
 
     <!-- userLayoutHead() finish -->
@@ -280,7 +282,7 @@
                                                 </div>
                                             </div>
 
-                                            <button type="submit"> Signup </button>
+                                            <button type="submit" onclick="submitForm()"> Signup </button>
                                 </form>
                             </div>
 
