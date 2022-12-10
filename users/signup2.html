@@ -200,7 +200,7 @@
 
                                             style: {
                                                 shape: "pill",
-                                                height: 40,
+                                                height: 20,
                                                 label: "subscribe"
                                             },
 
@@ -248,6 +248,7 @@
                                         },
                                         onApprove: function (data, actions) {
                                             alert(data.subscriptionID); // You can add optional success message for the subscriber here
+                                            
                                         }
                                     }).render('#paypal-button-container-P-3KC78992LW428500EMOGWW5Y'); // Renders the PayPal button
                                 </script>
@@ -256,56 +257,6 @@
                             </html>
 
 
-                            <script type="text/javascript">
-                                jQuery(document).ready(function ($) {
-                                    if (jQuery && jQuery.validator) {
-                                        jQuery.validator.addMethod("regex", function (value, element, params) {
-                                            return this.optional(element) || new RegExp(params[0], params[1]).test(value);
-                                        }, "Invalid Value");
-
-                                        jQuery.validator.addMethod("requiredms", function (value, element, params) {
-                                            return this.optional(element) || jQuery(element).closest('div').find('input[type=hidden]').length() > 0
-                                        }, "This field is required.");
-
-                                        jQuery("form#page-0").validate({
-                                            ignore: ':hidden'
-                                            , errorClass: "am-error"
-                                            , rules: { "product_id_page-0": { "required": true }, "name_f": { "required": true, "regex": ["^[^=:<>{}()\"]+$", ""] }, "name_l": { "required": true, "regex": ["^[^=:<>{}()\"]+$", ""] }, "email": { "required": true, "remote": { "url": "\/users\/ajax\/check-uniq-email?_url=%2Fusers%2Fsignup" } }, "login": { "required": true, "rangelength": ["6", "32"], "regex": ["^([-0-9a-zA-Z_][-0-9a-zA-Z_ ]+[-0-9a-zA-Z_]|[-0-9a-zA-Z_]+)$", ""], "remote": { "url": "\/users\/ajax?do=check_uniq_login" } }, "pass": { "required": true, "rangelength": ["6", "32"] }, "_pass": { "required": true, "equalTo": "#pass" }, "coupon": { "remote": { "url": "\/users\/ajax?do=check_coupon" } } }
-                                            , messages: { "product_id_page-0": { "required": "Please choose a membership type" }, "name_f": { "required": "Please enter your First Name", "regex": "Please enter your First Name" }, "name_l": { "required": "Please enter your Last Name", "regex": "Please enter your Last Name" }, "email": { "required": "Please enter valid Email", "remote": "--wrong email--" }, "login": { "required": "Please enter valid Username. It must contain at least 6 characters", "rangelength": "Please enter valid Username. It must contain at least 6 characters", "regex": "Username contains invalid characters - please use digits, letters or spaces", "remote": "--wrong login--" }, "pass": { "required": "Please enter Password", "rangelength": "Password must contain at least 6 letters or digits" }, "_pass": { "required": "This field is required", "equalTo": "Password and Password Confirmation are different. Please reenter both" }, "coupon": { "remote": "" } }
-                                            //,debug : true
-                                            , errorPlacement: function (error, element) {
-                                                error.appendTo(element.parent());
-                                            }
-                                            , submitHandler: function (form, event) {
-                                                event.stopPropagation();
-                                                var ev = jQuery.Event("amFormSubmit", {
-                                                    originalEvent: event,
-                                                    callback: function () {
-                                                        form.submit();
-                                                    }
-                                                });
-                                                // function shall replace callback to your own code
-                                                jQuery(form).trigger(ev);
-                                                if (ev.callback)
-                                                    ev.callback();
-                                            }
-                                            // custom validate js code start
-
-                                            , errorElement: "span"
-                                            // custom validate js code end
-                                        });
-                                    }
-                                    // custom js code start
-
-                                    // custom js code end
-                                });
-                            </script>
-                        </div>
-                        <script type="text/javascript">
-                            // this file is here for compatibility only
-                            document.querySelectorAll('form')
-                                .forEach(function (form) { amCountryState.initDefaults(form); });
-                        </script>
                     </div>
                 </div>
                 <div id="am-flash" class="am-flash">
