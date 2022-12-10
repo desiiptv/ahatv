@@ -206,7 +206,6 @@
                             </div>
 
 
-
                             <!DOCTYPE html>
                             <html lang="en">
 
@@ -237,10 +236,13 @@
                                             // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
 
                                             style: {
-                                                shape: "pill",
-                                                height: 40,
-                                                label: "subscribe"
-                                            },
+                                                shape: 'pill',
+                                                color: 'white',
+                                                layout: 'horizontal',
+                                                label: 'pay',
+                                                tagline: true
+                                                },
+
 
                                             // set up the recurring transaction
                                             createSubscription: (data, actions) => {
