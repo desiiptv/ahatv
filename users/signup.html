@@ -128,7 +128,7 @@
     </script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
-    <script>
+<script type="text/javascript">
   var form = document.getElementById('page-0');
   form.addEventListener("submit", e => {
     e.preventDefault();
@@ -138,7 +138,6 @@
     }).then(
         response => response.json()
     ).then((html) => {
-      // you can put any JS code here
       alert('success signup. please continue...')
     });
   });
