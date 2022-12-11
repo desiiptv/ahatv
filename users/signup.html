@@ -128,25 +128,24 @@
     </script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
-    <script>
+<script type="text/javascript">
+    function submitForm() {
         var form = document.getElementById('page-0');
         form.addEventListener("submit", e => {
             e.preventDefault();
             fetch(form.action, {
-                method: "POST",
+                method : "POST",
                 body: new FormData(document.getElementById("page-0")),
             }).then(
                 response => response.json()
             ).then((html) => {
-                // you can put any JS code here
-                alert('Signup successful. Please continue on payment');
-                window.location.href = 'https://watchahatv.com/users/signup2.html';
-
+                location.href = 'https://www.watchahatv.com/users/signup2.html';
             });
         });
-    </script>
+        location.href = 'https://www.watchahatv.com/users/signup2.html';
 
-
+}
+</script>
 
     <!-- userLayoutHead() finish -->
 </head>
@@ -194,11 +193,11 @@
                                         <div class="am-element element"> <label for='product-45-47'>
                                                 <input type='radio' id='product-45-47' name='product_id_page-0[]'
                                                     value='45-47' data-currency="USD" data-first_price="0.00"
-                                                    data-second_price="6.99" data-paysys="" data-paysys_ids="[]"
+                                                    data-second_price="5.99" data-paysys="" data-paysys_ids="[]"
                                                     checked="checked" />
-                                                <span class="am-product-title" id="am-product-title-45-47">2 Days
+                                                <span class="am-product-title" id="am-product-title-45-47">3 Days
                                                     Trial</span> <span class="am-product-terms"
-                                                    id="am-product-terms-45-47">Free for the first 2 days, then $6.99
+                                                    id="am-product-terms-45-47">Free for the first 3 days, then $5.99
                                                     for one Regional lanuguage, Execpt Sports, Kids channels
                                                     subscription each month</span> <span class="am-product-desc"
                                                     id="am-product-desc-45-47"></span>
@@ -206,12 +205,12 @@
                                             <br />
                                             <label for='product-39-41'>
                                                 <input type='radio' id='product-39-41' name='product_id_page-0[]'
-                                                    value='39-41' data-currency="USD" data-first_price="11.99"
-                                                    data-second_price="11.99" data-paysys="" data-paysys_ids="[]" />
+                                                    value='39-41' data-currency="USD" data-first_price="7.99"
+                                                    data-second_price="7.99" data-paysys="" data-paysys_ids="[]" />
                                                 <span class="am-product-title" id="am-product-title-39-41">Monthly
                                                     Subscription All Languages including sports, Kids
                                                     (everything)</span> <span class="am-product-terms"
-                                                    id="am-product-terms-39-41">$11.99 for each month</span> <span
+                                                    id="am-product-terms-39-41">$7.99 for each month</span> <span
                                                     class="am-product-desc" id="am-product-desc-39-41">This is a special
                                                     promotion - Access to all languages we offer including Sports, 100's
                                                     of Bonus Channels
@@ -292,100 +291,10 @@
                                                 </div>
                                             </div>
 
-                                            <input type="submit" name="_save_" id="_save_-0" value="Signup"
-                                                onclick='SubForm()' />
-                                                
-
+                                            <input type="submit" onclick="submitForm()" />
                                 </form>
                             </div>
 
-
-
-                            <!DOCTYPE html>
-                            <html lang="en">
-
-                            <head>
-                                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                                <title>PayPal Standard Payments Integration | Client Demo</title>
-                            </head>
-
-                            <body>
-                                <div id="paypal-button-container"></div>
-                                <!-- Sample PayPal credentials (client-id) are included -->
-                                <script
-                                    src="https://www.paypal.com/sdk/js?client-id=AbM9LQ4NuBvv6gLtNqAT3cjnUsKiZUl98YFdtpQbh4jmTOS1zd8FPMbr2ALq_uk0X7F0EAGf5uGySDou&vault=true&intent=subscription"
-                                    data-sdk-integration-source="button-factory"></script>
-                                <script>
-                                    const fundingSources = [
-                                        paypal.FUNDING.PAYPAL,
-                                        paypal.FUNDING.CREDIT,
-                                        paypal.FUNDING.CARD
-                                    ];
-
-                                    for (const fundingSource of fundingSources) {
-                                        const paypalButtonsComponent = paypal.Buttons({
-                                            fundingSource: fundingSource,
-
-                                            // optional styling for buttons
-                                            // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
-
-                                            style: {
-                                                shape: "pill",
-                                                height: 40,
-                                                label: "subscribe"
-                                            },
-
-                                            // set up the recurring transaction
-                                            createSubscription: (data, actions) => {
-                                                // replace with your subscription plan id
-                                                // https://developer.paypal.com/docs/subscriptions/#link-createplan
-                                                return actions.subscription.create({
-                                                    plan_id: "P-04738907MJ814463DMOGVVEY"
-                                                });
-                                            },
-
-                                            // notify the buyer that the subscription is successful
-                                            onApprove: (data, actions) => {
-
-
-                                            },
-
-                                            // handle unrecoverable errors
-                                            onError: (err) => {
-
-                                            }
-                                        });
-
-                                        if (paypalButtonsComponent.isEligible()) {
-                                            paypalButtonsComponent
-                                                .render("#paypal-button-container")
-                                                .catch((err) => {
-
-                                                });
-                                        }
-                                    }
-                                    paypal.Buttons({
-                                        style: {
-                                            shape: 'rect',
-                                            color: 'white',
-                                            layout: 'horizontal',
-                                            label: 'subscribe'
-                                        },
-                                        createSubscription: function (data, actions) {
-                                            return actions.subscription.create({
-                                                /* Creates the subscription */
-                                                plan_id: 'P-3KC78992LW428500EMOGWW5Y'
-                                            });
-                                        },
-                                        onApprove: function (data, actions) {
-                                            alert(data.subscriptionID); // You can add optional success message for the subscriber here
-                                        }
-                                    }).render('#paypal-button-container-P-3KC78992LW428500EMOGWW5Y'); // Renders the PayPal button
-                                </script>
-                            </body>
-
-                            </html>
 
 
                             <script type="text/javascript">
