@@ -256,16 +256,11 @@
                                 <script src="https://www.paypal.com/sdk/js?client-id=AbM9LQ4NuBvv6gLtNqAT3cjnUsKiZUl98YFdtpQbh4jmTOS1zd8FPMbr2ALq_uk0X7F0EAGf5uGySDou&vault=true&intent=subscription"
                                     data-sdk-integration-source="button-factory"></script>
                                 <script>
-                                    const fundingSources = [
-                                        paypal.FUNDING.PAYPAL,
-                                        paypal.FUNDING.CREDIT,
-                                        paypal.FUNDING.CARD
-                                    ];
+                                 
 
-                                    
 
-const planA = 'P-04738907MJ814463DMOGVVEY';
-const planB = 'P-1JN05705K53953236LZYGBYA';
+                                    const planA = 'P-04738907MJ814463DMOGVVEY';
+                                    const planB = 'P-1JN05705K53953236LZYGBYA';
 
 paypal.Buttons({
   style: {
@@ -328,68 +323,9 @@ paypal.Buttons({
 }).render('#paypal-buttons-plan-b');
 
 
-                                    for (const fundingSource of fundingSources) {
-                                        const paypalButtonsComponent = paypal.Buttons({
-                                            fundingSource: fundingSource,
-
-                                            // optional styling for buttons
-                                            // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
-
-                                            style: {
-                                                shape: 'pill',
-                                                color: 'white',
-                                                layout: 'horizontal',
-                                                label: 'pay',
-                                                tagline: true
-                                            },
+                                 
 
 
-                                            // set up the recurring transaction
-                                            createSubscription: (data, actions) => {
-                                                // replace with your subscription plan id
-                                                // https://developer.paypal.com/docs/subscriptions/#link-createplan
-                                                return actions.subscription.create({
-                                                    plan_id: "P-04738907MJ814463DMOGVVEY"
-                                                });
-                                            },
-
-                                            // notify the buyer that the subscription is successful
-                                            onApprove: (data, actions) => {
-
-
-                                            },
-
-                                            // handle unrecoverable errors
-                                            onError: (err) => {
-
-                                            }
-                                        });
-
-                                        if (paypalButtonsComponent.isEligible()) {
-                                            paypalButtonsComponent
-                                                .render("#paypal-button-container")
-                                                .catch((err) => {
-
-                                                });
-                                        }
-                                    }
-                                    paypal.Buttons({
-                                        style: {
-                                            shape: 'rect',
-                                            color: 'white',
-                                            layout: 'horizontal',
-                                            label: 'subscribe'
-                                        },
-                                        createSubscription: function (data, actions) {
-                                            return actions.subscription.create({
-                                                /* Creates the subscription */
-                                                plan_id: 'P-3KC78992LW428500EMOGWW5Y'
-                                            });
-                                        },
-                                        onApprove: function (data, actions) {
-                                            alert(data.subscriptionID); // You can add optional success message for the subscriber here
-                                        }
-                                    }).render('#paypal-button-container-P-3KC78992LW428500EMOGWW5Y'); // Renders the PayPal button
                                 </script>
                             </body>
 
