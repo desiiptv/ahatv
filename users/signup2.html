@@ -292,6 +292,7 @@
                                                 // https://developer.paypal.com/docs/subscriptions/#link-createplan
                                                 return actions.subscription.create({
                                                     'plan_id': document.getElementById('product-39-41').value === '39-41' ? planA : planB,
+                                                    alert('plan_id');
 
                                                 });
                                             },
