@@ -205,97 +205,67 @@
                                             <br />
                                         </div>
                                     </div>
+                                    <div class="am-row row" id="row-product_id_page-0-0">
+                                        <div class="am-element-title element-title"> <label for="product_id_page-0-0">
+                                                <span class="required">* </span> Membership Type </label> </div>
+                                        <div class="am-element element"> <label for='product-45-47'>
+                                                <input type='radio' id='product-45-47' name='product_id_page-0[]'
+                                                    value='45-47' data-currency="USD" data-first_price="0.00"
+                                                    data-second_price="4.99" data-paysys="" data-paysys_ids="[]"
+                                                    checked="checked" />
+                                                <span class="am-product-title" id="am-product-title-45-47">3 Days
+                                                    Trial</span> <span class="am-product-terms"
+                                                    id="am-product-terms-45-47">Free for the first 3 days, then $4.99
+                                                    for one Regional lanuguage, Execpt Sports, Kids channels
+                                                    subscription each month</span> <span class="am-product-desc"
+                                                    id="am-product-desc-45-47"></span>
+                                            </label>
+                                            <br />
+                                            <label for='product-39-41'>
+                                                <input type='radio' id='product-39-41' name='product_id_page-0[]'
+                                                    value='39-41' data-currency="USD" data-first_price="5.99"
+                                                    data-second_price="5.99" data-paysys="" data-paysys_ids="[]" />
+                                                <span class="am-product-title" id="am-product-title-39-41">Monthly
+                                                    Subscription All Languages including sports, Kids
+                                                    (everything)</span> <span class="am-product-terms"
+                                                    id="am-product-terms-39-41">$5.99 for each month</span> <span
+                                                    class="am-product-desc" id="am-product-desc-39-41">This is a special
+                                                    promotion - Access to all languages we offer including Sports, 100's
+                                                    of Bonus Channels
+
+                                                    Live TV | Catch UP | Movies | TV Serials | TV Shows | Cricket | IPL
+                                                    Matches | News | Kids and many more Bonus contents are included
+
+                                                    <br><br></span>
+                                            </label>
+                                            <br />
+                                        </div>
+                                    </div>
 
 
 
                                 </form>
                             </div>
-
-
-                            <!DOCTYPE html>
-                            <html lang="en">
-
-                            <head>
-                                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                                <!-- Whatsapp Plugin -->
-
-                                <script type="text/javascript"
-                                    src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
-                                    id="aisensy-wa-widget" widget-id="luazNz">
-                                    </script>
-                                <title>PayPal Standard Payments Integration | Client Demo</title>
-                            </head>
-                            <body>
-
-                            <script src="https://www.paypal.com/sdk/js?client-id=AbM9LQ4NuBvv6gLtNqAT3cjnUsKiZUl98YFdtpQbh4jmTOS1zd8FPMbr2ALq_uk0X7F0EAGf5uGySDou&vault=true&intent=subscription">
-                                </script>
-
-                            <h1>
-                                Single button with multiple Plans
-                            </h1>
-                            <h3>
-                                <label for="selectPlan">Select Plan</label>
-                                <select id="selectPlan">
-                                    <option value="planA">Plan A</option>
-                                    <option value="planB">Plan B</option>
-                                </select>
-                            </h3>
-                            <div id="paypal-buttons"></div>
-
-                            <hr>
-                            <h1>
-                                Different buttons for different plans
-                            </h1>
-
-                            <h3>
-                                Plan A
-                            </h3>
-                            <div id="paypal-buttons-plan-a"></div>
-
-
-                            <h3>
-                                Plan B
-                            </h3>
-                            <div id="paypal-buttons-plan-b"></div>
+                        
 
 
 
-                            
+                           
+                                <div id="paypal-button-container"></div>
+                                <!-- Sample PayPal credentials (client-id) are included -->
+                                <script src="https://www.paypal.com/sdk/js?client-id=AbM9LQ4NuBvv6gLtNqAT3cjnUsKiZUl98YFdtpQbh4jmTOS1zd8FPMbr2ALq_uk0X7F0EAGf5uGySDou&vault=true&intent=subscription"
+                                    data-sdk-integration-source="button-factory"></script>
+                                <script>
+                                    const fundingSources = [
+                                        paypal.FUNDING.PAYPAL,
+                                        paypal.FUNDING.CREDIT,
+                                        paypal.FUNDING.CARD
+                                    ];
 
-
-<script src="https://www.paypal.com/sdk/js?client-id=ARqKO-Zl4_Hw4YtskemsSuHwSHhY1i0LWd8VxU6uRjZzuI_rwB530TCaYPVvKXzimfMQaSC9Mg8Og4P2&vault=true"></script>
-
-<h1>
-  Single button with multiple Plans
-</h1>
-<h3>
-  <label for="selectPlan">Select Plan</label>
-  <select id="selectPlan">
-    <option value="planA">Plan A</option>
-    <option value="planB">Plan B</option>
-  </select>
-</h3>
-<div id="paypal-buttons"></div>
-
-<hr>
-<h1>
-  Different buttons for different plans
-</h1>
-
-<h3>
-  Plan A
-</h3>
-<div id="paypal-buttons-plan-a"></div>
-
-
-<h3>
-  Plan B
-</h3>
-<div id="paypal-buttons-plan-b"></div>
+                                    
 
 const planA = 'P-04738907MJ814463DMOGVVEY';
-const planB = 'P-3KC78992LW428500EMOGWW5Y';
+const planB = 'P-1JN05705K53953236LZYGBYA';
 
 paypal.Buttons({
   style: {
@@ -305,7 +275,7 @@ paypal.Buttons({
   },
   createSubscription: function(data, actions) {
     return actions.subscription.create({
-      'plan_id': document.getElementById('selectPlan').value === 'planA' ? planA : planB,
+      'plan_id': document.getElementById('product-39-41').value === 'planA' ? planA : planB,
       'application_context': {
         'shipping_preference': 'NO_SHIPPING'
       }
@@ -358,7 +328,72 @@ paypal.Buttons({
 }).render('#paypal-buttons-plan-b');
 
 
-                       
+                                    for (const fundingSource of fundingSources) {
+                                        const paypalButtonsComponent = paypal.Buttons({
+                                            fundingSource: fundingSource,
+
+                                            // optional styling for buttons
+                                            // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
+
+                                            style: {
+                                                shape: 'pill',
+                                                color: 'white',
+                                                layout: 'horizontal',
+                                                label: 'pay',
+                                                tagline: true
+                                            },
+
+
+                                            // set up the recurring transaction
+                                            createSubscription: (data, actions) => {
+                                                // replace with your subscription plan id
+                                                // https://developer.paypal.com/docs/subscriptions/#link-createplan
+                                                return actions.subscription.create({
+                                                    plan_id: "P-04738907MJ814463DMOGVVEY"
+                                                });
+                                            },
+
+                                            // notify the buyer that the subscription is successful
+                                            onApprove: (data, actions) => {
+
+
+                                            },
+
+                                            // handle unrecoverable errors
+                                            onError: (err) => {
+
+                                            }
+                                        });
+
+                                        if (paypalButtonsComponent.isEligible()) {
+                                            paypalButtonsComponent
+                                                .render("#paypal-button-container")
+                                                .catch((err) => {
+
+                                                });
+                                        }
+                                    }
+                                    paypal.Buttons({
+                                        style: {
+                                            shape: 'rect',
+                                            color: 'white',
+                                            layout: 'horizontal',
+                                            label: 'subscribe'
+                                        },
+                                        createSubscription: function (data, actions) {
+                                            return actions.subscription.create({
+                                                /* Creates the subscription */
+                                                plan_id: 'P-3KC78992LW428500EMOGWW5Y'
+                                            });
+                                        },
+                                        onApprove: function (data, actions) {
+                                            alert(data.subscriptionID); // You can add optional success message for the subscriber here
+                                        }
+                                    }).render('#paypal-button-container-P-3KC78992LW428500EMOGWW5Y'); // Renders the PayPal button
+                                </script>
+                            </body>
+
+                            </html>
 
 
                             <script type="text/javascript">
