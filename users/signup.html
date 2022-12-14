@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+
+<!-- Mirrored from watchahatv.com/users/signup by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Nov 2022 15:41:01 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
 <head>
+
     <!-- Google Tag Manager -->
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -142,11 +147,10 @@
             }).then(
                 response => response.json()
             ).then((html) => {
-                 window.location.ref = "https://www.watchahatv.com/users/signup2.html";
+                location.href = 'https://www.watchahatv.com/users/signup2.html';
             });
-            window.location.ref = "https://www.watchahatv.com/users/signup2.html";
         });
-        
+        location.href = 'https://www.watchahatv.com/users/signup2.html';
 
 }
 </script>
@@ -280,7 +284,7 @@
                                                 Address </label> </div>
                                         <div class="am-element element"> <input type="text" name="data[macaddress]"
                                                 id="macaddress"
-                                                placeholder="Enter your MAC ADDRESS (00:1A:79:xx:xx:xx)"  /> </div>
+                                                placeholder="Enter your MAC ADDRESS (00:1A:79:xx:xx:xx)" /> </div>
                                     </div>
                                     <div class="am-row row" id="row-coupon">
                                         <div class="am-element-title element-title"> <label for="coupon"> Enter coupon
@@ -294,97 +298,10 @@
                                                 <div class="am-element element group">
                                                 </div>
                                             </div>
-                                           <input  type="submit" onclick="submitForm()" />-->
+
+                                            <input type="submit" onclick="submitForm()" />
                                 </form>
                             </div>
-
-
-
-                            
-                            <div id="paypal-button-container" ></div>
-                            <!-- Sample PayPal credentials (client-id) are included -->
-                            <script
-                                src="https://www.paypal.com/sdk/js?client-id=AbM9LQ4NuBvv6gLtNqAT3cjnUsKiZUl98YFdtpQbh4jmTOS1zd8FPMbr2ALq_uk0X7F0EAGf5uGySDou&vault=true&intent=subscription"
-                                data-sdk-integration-source="button-factory"></script>
-                            <script>
-
-                                const planA = 'P-04738907MJ814463DMOGVVEY';
-                                const planB = 'P-1JN05705K53953236LZYGBYA';
-
-
-                                const fundingSources = [
-                                    paypal.FUNDING.PAYPAL,
-                                    paypal.FUNDING.CREDIT,
-                                    paypal.FUNDING.CARD
-                                ];
-
-
-
-                                for (const fundingSource of fundingSources) {
-                                    const paypalButtonsComponent = paypal.Buttons({
-                                        fundingSource: fundingSource,
-
-                                        // optional styling for buttons
-                                        // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
-
-                                        style: {
-                                            shape: 'pill',
-                                            color: 'white',
-                                            layout: 'horizontal',
-                                            label: 'pay',
-                                            tagline: true
-                                        },
-
-
-
-                                        // set up the recurring transaction
-                                        createSubscription: (data, actions) => {
-                                            // replace with your subscription plan id
-                                            // https://developer.paypal.com/docs/subscriptions/#link-createplan
-                                            return actions.subscription.create({
-                                                'plan_id': document.getElementById('product-39-41').value === '39-41' ? planB : planA,
-
-                                            });
-                                        },
-
-                                        // notify the buyer that the subscription is successful
-                                        onApprove: (data, actions) => {
-
-
-                                        },
-
-                                        // handle unrecoverable errors
-                                        onError: (err) => {
-
-                                        }
-                                    });
-
-                                    if (paypalButtonsComponent.isEligible()) {
-                                        paypalButtonsComponent
-                                            .render("#paypal-button-container")
-                                            .catch((err) => {
-
-                                            });
-                                    }
-                                }
-                                paypal.Buttons({
-                                    style: {
-                                        shape: 'rect',
-                                        color: 'white',
-                                        layout: 'horizontal',
-                                        label: 'subscribe'
-                                    },
-                                    createSubscription: function (data, actions) {
-                                        return actions.subscription.create({
-                                            /* Creates the subscription */
-                                            plan_id: 'P-3KC78992LW428500EMOGWW5Y'
-                                        });
-                                    },
-                                    onApprove: function (data, actions) {
-                                        alert(data.subscriptionID); // You can add optional success message for the subscriber here
-                                    }
-                                }).render('#paypal-button-container-P-3KC78992LW428500EMOGWW5Y'); // Renders the PayPal button
-                            </script>
 
 
 
@@ -485,4 +402,7 @@
         })();
     </script>
 </body>
+
+<!-- Mirrored from watchahatv.com/users/signup by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Nov 2022 15:41:02 GMT -->
+
 </html>
