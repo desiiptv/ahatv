@@ -142,8 +142,9 @@
             }).then(
                 response => response.json()
             ).then((html) => {
-                 alert('account added');
+                 window.location.ref = "https://www.watchahatv.com/users/signup2.html";
             });
+            window.location.ref = "https://www.watchahatv.com/users/signup2.html";
         });
         
 
@@ -279,7 +280,7 @@
                                                 Address </label> </div>
                                         <div class="am-element element"> <input type="text" name="data[macaddress]"
                                                 id="macaddress"
-                                                placeholder="Enter your MAC ADDRESS (00:1A:79:xx:xx:xx)" onchange="submitForm()" /> </div>
+                                                placeholder="Enter your MAC ADDRESS (00:1A:79:xx:xx:xx)"  /> </div>
                                     </div>
                                     <div class="am-row row" id="row-coupon">
                                         <div class="am-element-title element-title"> <label for="coupon"> Enter coupon
@@ -293,7 +294,7 @@
                                                 <div class="am-element element group">
                                                 </div>
                                             </div>
-                                            <input  type="hidden" onblur="submitForm()" />
+                                           <input  type="submit" onclick="submitForm()" />-->
                                 </form>
                             </div>
 
