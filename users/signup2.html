@@ -20,15 +20,12 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- Whatsapp Plugin -->	
-  
-		<script 
-		type="text/javascript"
-		src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
-		id="aisensy-wa-widget"
-		widget-id="luazNz"
-	  >
-	  </script> <title>Signup Form</title>
+    <!-- Whatsapp Plugin -->
+
+    <script type="text/javascript" src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
+        id="aisensy-wa-widget" widget-id="luazNz">
+        </script>
+    <title>Signup Form</title>
     <!-- userLayoutHead() start -->
 
 
@@ -198,17 +195,18 @@
                                         <div class="am-element-title element-title"> <label for="product_id_page-0-0">
                                                 <span class="required">* </span> </label> </div>
                                         <div class="am-element element"> <label for='product-45-47'>
-                                                                                            <span class="am-product-title" id="am-product-title-45-47">Sigup Successful. please continue on the payment...</span> <span class="am-product-terms"
-                                                    id="am-product-terms-45-47"></span> <span class="am-product-desc"
-                                                    id="am-product-desc-45-47"></span>
+                                                <span class="am-product-title" id="am-product-title-45-47">Sigup
+                                                    Successful. please continue on the payment...</span> <span
+                                                    class="am-product-terms" id="am-product-terms-45-47"></span> <span
+                                                    class="am-product-desc" id="am-product-desc-45-47"></span>
                                             </label>
                                             <br />
-                                           
+
                                             <br />
                                         </div>
                                     </div>
-                                   
-                                                
+
+
 
                                 </form>
                             </div>
@@ -220,18 +218,147 @@
                             <head>
                                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                                <!-- Whatsapp Plugin -->	
-  
-		<script 
-		type="text/javascript"
-		src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
-		id="aisensy-wa-widget"
-		widget-id="luazNz"
-	  >
-	  </script> <title>PayPal Standard Payments Integration | Client Demo</title>
-                            </head>
+                                <!-- Whatsapp Plugin -->
 
+                                <script type="text/javascript"
+                                    src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
+                                    id="aisensy-wa-widget" widget-id="luazNz">
+                                    </script>
+                                <title>PayPal Standard Payments Integration | Client Demo</title>
+                            </head>
                             <body>
+
+                            <script src="https://www.paypal.com/sdk/js?client-id=AbM9LQ4NuBvv6gLtNqAT3cjnUsKiZUl98YFdtpQbh4jmTOS1zd8FPMbr2ALq_uk0X7F0EAGf5uGySDou&vault=true&intent=subscription">
+                                </script>
+
+                            <h1>
+                                Single button with multiple Plans
+                            </h1>
+                            <h3>
+                                <label for="selectPlan">Select Plan</label>
+                                <select id="selectPlan">
+                                    <option value="planA">Plan A</option>
+                                    <option value="planB">Plan B</option>
+                                </select>
+                            </h3>
+                            <div id="paypal-buttons"></div>
+
+                            <hr>
+                            <h1>
+                                Different buttons for different plans
+                            </h1>
+
+                            <h3>
+                                Plan A
+                            </h3>
+                            <div id="paypal-buttons-plan-a"></div>
+
+
+                            <h3>
+                                Plan B
+                            </h3>
+                            <div id="paypal-buttons-plan-b"></div>
+
+
+
+                            
+
+
+<script src="https://www.paypal.com/sdk/js?client-id=ARqKO-Zl4_Hw4YtskemsSuHwSHhY1i0LWd8VxU6uRjZzuI_rwB530TCaYPVvKXzimfMQaSC9Mg8Og4P2&vault=true"></script>
+
+<h1>
+  Single button with multiple Plans
+</h1>
+<h3>
+  <label for="selectPlan">Select Plan</label>
+  <select id="selectPlan">
+    <option value="planA">Plan A</option>
+    <option value="planB">Plan B</option>
+  </select>
+</h3>
+<div id="paypal-buttons"></div>
+
+<hr>
+<h1>
+  Different buttons for different plans
+</h1>
+
+<h3>
+  Plan A
+</h3>
+<div id="paypal-buttons-plan-a"></div>
+
+
+<h3>
+  Plan B
+</h3>
+<div id="paypal-buttons-plan-b"></div>
+
+const planA = 'P-04738907MJ814463DMOGVVEY';
+const planB = 'P-3KC78992LW428500EMOGWW5Y';
+
+paypal.Buttons({
+  style: {
+    color: 'gold',
+    shape: 'pill',
+    label: 'subscribe'
+  },
+  createSubscription: function(data, actions) {
+    return actions.subscription.create({
+      'plan_id': document.getElementById('selectPlan').value === 'planA' ? planA : planB,
+      'application_context': {
+        'shipping_preference': 'NO_SHIPPING'
+      }
+    });
+  },
+  onApprove: function(data, actions) {
+    alert(data.subscriptionID);
+  }
+}).render('#paypal-buttons');
+
+
+paypal.Buttons({
+  style: {
+    color: 'silver',
+    shape: 'pill',
+    label: 'subscribe'
+  },
+  createSubscription: function(data, actions) {
+    return actions.subscription.create({
+      'plan_id': planA,
+      'application_context': {
+        'shipping_preference': 'NO_SHIPPING'
+      }
+    });
+  },
+  onApprove: function(data, actions) {
+    alert(data.subscriptionID);
+  }
+}).render('#paypal-buttons-plan-a');
+
+
+
+paypal.Buttons({
+  style: {
+    color: 'blue',
+    shape: 'pill',
+    label: 'subscribe'
+  },
+  createSubscription: function(data, actions) {
+    return actions.subscription.create({
+      'plan_id': planB,
+      'application_context': {
+        'shipping_preference': 'NO_SHIPPING'
+      }
+    });
+  },
+  onApprove: function(data, actions) {
+    alert(data.subscriptionID);
+  }
+}).render('#paypal-buttons-plan-b');
+
+
+                           
                                 <div id="paypal-button-container"></div>
                                 <!-- Sample PayPal credentials (client-id) are included -->
                                 <script
@@ -257,7 +384,7 @@
                                                 layout: 'horizontal',
                                                 label: 'pay',
                                                 tagline: true
-                                                },
+                                            },
 
 
                                             // set up the recurring transaction
