@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 
-<!-- Mirrored from watchahatv.com/users/signup by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Nov 2022 15:41:01 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 
 <head>
 
@@ -246,203 +246,197 @@
 
                                 </form>
                             </div>
-                        
 
 
 
-                           
-                                <div id="paypal-button-container"></div>
-                                <!-- Sample PayPal credentials (client-id) are included -->
-                                <script src="https://www.paypal.com/sdk/js?client-id=AbM9LQ4NuBvv6gLtNqAT3cjnUsKiZUl98YFdtpQbh4jmTOS1zd8FPMbr2ALq_uk0X7F0EAGf5uGySDou&vault=true&intent=subscription"
-                                    data-sdk-integration-source="button-factory"></script>
-                                <script>
-
-                                    const planA = 'P-04738907MJ814463DMOGVVEY';
-                                    const planB = 'P-1JN05705K53953236LZYGBYA';
 
 
-                                    const fundingSources = [
-                                        paypal.FUNDING.PAYPAL,
-                                        paypal.FUNDING.CREDIT,
-                                        paypal.FUNDING.CARD
-                                    ];
+                            <div id="paypal-button-container"></div>
+                            <!-- Sample PayPal credentials (client-id) are included -->
+                            <script
+                                src="https://www.paypal.com/sdk/js?client-id=AbM9LQ4NuBvv6gLtNqAT3cjnUsKiZUl98YFdtpQbh4jmTOS1zd8FPMbr2ALq_uk0X7F0EAGf5uGySDou&vault=true&intent=subscription"
+                                data-sdk-integration-source="button-factory"></script>
+                            <script>
 
-                                    
-
-                               for (const fundingSource of fundingSources) {
-                                        const paypalButtonsComponent = paypal.Buttons({
-                                            fundingSource: fundingSource,
-
-                                            // optional styling for buttons
-                                            // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
-
-                                            style: {
-                                                shape: 'pill',
-                                                color: 'white',
-                                                layout: 'horizontal',
-                                                label: 'pay',
-                                                tagline: true
-                                            },
+                                const planA = 'P-04738907MJ814463DMOGVVEY';
+                                const planB = 'P-1JN05705K53953236LZYGBYA';
 
 
-                                            
-                                            // set up the recurring transaction
-                                            createSubscription: (data, actions) => {
-                                                // replace with your subscription plan id
-                                                // https://developer.paypal.com/docs/subscriptions/#link-createplan
-                                                return actions.subscription.create({
-                                                    'plan_id': document.getElementById('product-39-41').value === '39-41' ? planB : planA,
-
-                                                });
-                                            },
-
-                                            // notify the buyer that the subscription is successful
-                                            onApprove: (data, actions) => {
+                                const fundingSources = [
+                                    paypal.FUNDING.PAYPAL,
+                                    paypal.FUNDING.CREDIT,
+                                    paypal.FUNDING.CARD
+                                ];
 
 
-                                            },
 
-                                            // handle unrecoverable errors
-                                            onError: (err) => {
+                                for (const fundingSource of fundingSources) {
+                                    const paypalButtonsComponent = paypal.Buttons({
+                                        fundingSource: fundingSource,
 
-                                            }
-                                        });
+                                        // optional styling for buttons
+                                        // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
 
-                                        if (paypalButtonsComponent.isEligible()) {
-                                            paypalButtonsComponent
-                                                .render("#paypal-button-container")
-                                                .catch((err) => {
-
-                                                });
-                                        }
-                                    }
-                                    paypal.Buttons({
                                         style: {
-                                            shape: 'rect',
+                                            shape: 'pill',
                                             color: 'white',
                                             layout: 'horizontal',
-                                            label: 'subscribe'
+                                            label: 'pay',
+                                            tagline: true
                                         },
-                                        createSubscription: function (data, actions) {
+
+
+
+                                        // set up the recurring transaction
+                                        createSubscription: (data, actions) => {
+                                            // replace with your subscription plan id
+                                            // https://developer.paypal.com/docs/subscriptions/#link-createplan
                                             return actions.subscription.create({
-                                                /* Creates the subscription */
-                                                plan_id: 'P-3KC78992LW428500EMOGWW5Y'
+                                                'plan_id': document.getElementById('product-39-41').value === '39-41' ? planB : planA,
+
                                             });
                                         },
-                                        onApprove: function (data, actions) {
-                                            alert(data.subscriptionID); // You can add optional success message for the subscriber here
+
+                                        // notify the buyer that the subscription is successful
+                                        onApprove: (data, actions) => {
+
+
+                                        },
+
+                                        // handle unrecoverable errors
+                                        onError: (err) => {
+
                                         }
-                                    }).render('#paypal-button-container-P-3KC78992LW428500EMOGWW5Y'); // Renders the PayPal button
+                                    });
 
+                                    if (paypalButtonsComponent.isEligible()) {
+                                        paypalButtonsComponent
+                                            .render("#paypal-button-container")
+                                            .catch((err) => {
 
-
-                                 
-
-
-                                </script>
-                            </body>
-
-                            </html>
-
-
-                            <script type="text/javascript">
-                                jQuery(document).ready(function ($) {
-                                    if (jQuery && jQuery.validator) {
-                                        jQuery.validator.addMethod("regex", function (value, element, params) {
-                                            return this.optional(element) || new RegExp(params[0], params[1]).test(value);
-                                        }, "Invalid Value");
-
-                                        jQuery.validator.addMethod("requiredms", function (value, element, params) {
-                                            return this.optional(element) || jQuery(element).closest('div').find('input[type=hidden]').length() > 0
-                                        }, "This field is required.");
-
-                                        jQuery("form#page-0").validate({
-                                            ignore: ':hidden'
-                                            , errorClass: "am-error"
-                                            , rules: { "product_id_page-0": { "required": true }, "name_f": { "required": true, "regex": ["^[^=:<>{}()\"]+$", ""] }, "name_l": { "required": true, "regex": ["^[^=:<>{}()\"]+$", ""] }, "email": { "required": true, "remote": { "url": "\/users\/ajax\/check-uniq-email?_url=%2Fusers%2Fsignup" } }, "login": { "required": true, "rangelength": ["6", "32"], "regex": ["^([-0-9a-zA-Z_][-0-9a-zA-Z_ ]+[-0-9a-zA-Z_]|[-0-9a-zA-Z_]+)$", ""], "remote": { "url": "\/users\/ajax?do=check_uniq_login" } }, "pass": { "required": true, "rangelength": ["6", "32"] }, "_pass": { "required": true, "equalTo": "#pass" }, "coupon": { "remote": { "url": "\/users\/ajax?do=check_coupon" } } }
-                                            , messages: { "product_id_page-0": { "required": "Please choose a membership type" }, "name_f": { "required": "Please enter your First Name", "regex": "Please enter your First Name" }, "name_l": { "required": "Please enter your Last Name", "regex": "Please enter your Last Name" }, "email": { "required": "Please enter valid Email", "remote": "--wrong email--" }, "login": { "required": "Please enter valid Username. It must contain at least 6 characters", "rangelength": "Please enter valid Username. It must contain at least 6 characters", "regex": "Username contains invalid characters - please use digits, letters or spaces", "remote": "--wrong login--" }, "pass": { "required": "Please enter Password", "rangelength": "Password must contain at least 6 letters or digits" }, "_pass": { "required": "This field is required", "equalTo": "Password and Password Confirmation are different. Please reenter both" }, "coupon": { "remote": "" } }
-                                            //,debug : true
-                                            , errorPlacement: function (error, element) {
-                                                error.appendTo(element.parent());
-                                            }
-                                            , submitHandler: function (form, event) {
-                                                event.stopPropagation();
-                                                var ev = jQuery.Event("amFormSubmit", {
-                                                    originalEvent: event,
-                                                    callback: function () {
-                                                        form.submit();
-                                                    }
-                                                });
-                                                // function shall replace callback to your own code
-                                                jQuery(form).trigger(ev);
-                                                if (ev.callback)
-                                                    ev.callback();
-                                            }
-                                            // custom validate js code start
-
-                                            , errorElement: "span"
-                                            // custom validate js code end
-                                        });
+                                            });
                                     }
-                                    // custom js code start
-
-                                    // custom js code end
-                                });
+                                }
+                                paypal.Buttons({
+                                    style: {
+                                        shape: 'rect',
+                                        color: 'white',
+                                        layout: 'horizontal',
+                                        label: 'subscribe'
+                                    },
+                                    createSubscription: function (data, actions) {
+                                        return actions.subscription.create({
+                                            /* Creates the subscription */
+                                            plan_id: 'P-3KC78992LW428500EMOGWW5Y'
+                                        });
+                                    },
+                                    onApprove: function (data, actions) {
+                                        alert(data.subscriptionID); // You can add optional success message for the subscriber here
+                                    }
+                                }).render('#paypal-button-container-P-3KC78992LW428500EMOGWW5Y'); // Renders the PayPal button
                             </script>
-                        </div>
-                        <script type="text/javascript">
-                            // this file is here for compatibility only
-                            document.querySelectorAll('form')
-                                .forEach(function (form) { amCountryState.initDefaults(form); });
-                        </script>
-                    </div>
-                </div>
-                <div id="am-flash" class="am-flash">
-                    <div class="am-flash-mask"></div>
-                    <div class="am-flash-content"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="am-footer">
-        <div class="am-footer-content-wrapper am-main">
-            <div class="am-footer-content">
-                <div class="am-footer-actions">
-                    <a href="#top" id="am-action-move-to-top"></a>
-                </div>
+</body>
+</html>
 
-                <div class="am-footer-content-content">
-                    <div class="am-footer-text">Copyrights &copy; 2022 All Rights Reserved by Watch Aha TV</div>
-                    <div class="am-footer-sm">
-                    </div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        if (jQuery && jQuery.validator) {
+            jQuery.validator.addMethod("regex", function (value, element, params) {
+                return this.optional(element) || new RegExp(params[0], params[1]).test(value);
+            }, "Invalid Value");
+
+            jQuery.validator.addMethod("requiredms", function (value, element, params) {
+                return this.optional(element) || jQuery(element).closest('div').find('input[type=hidden]').length() > 0
+            }, "This field is required.");
+
+            jQuery("form#page-0").validate({
+                ignore: ':hidden'
+                , errorClass: "am-error"
+                , rules: { "product_id_page-0": { "required": true }, "name_f": { "required": true, "regex": ["^[^=:<>{}()\"]+$", ""] }, "name_l": { "required": true, "regex": ["^[^=:<>{}()\"]+$", ""] }, "email": { "required": true, "remote": { "url": "\/users\/ajax\/check-uniq-email?_url=%2Fusers%2Fsignup" } }, "login": { "required": true, "rangelength": ["6", "32"], "regex": ["^([-0-9a-zA-Z_][-0-9a-zA-Z_ ]+[-0-9a-zA-Z_]|[-0-9a-zA-Z_]+)$", ""], "remote": { "url": "\/users\/ajax?do=check_uniq_login" } }, "pass": { "required": true, "rangelength": ["6", "32"] }, "_pass": { "required": true, "equalTo": "#pass" }, "coupon": { "remote": { "url": "\/users\/ajax?do=check_coupon" } } }
+                , messages: { "product_id_page-0": { "required": "Please choose a membership type" }, "name_f": { "required": "Please enter your First Name", "regex": "Please enter your First Name" }, "name_l": { "required": "Please enter your Last Name", "regex": "Please enter your Last Name" }, "email": { "required": "Please enter valid Email", "remote": "--wrong email--" }, "login": { "required": "Please enter valid Username. It must contain at least 6 characters", "rangelength": "Please enter valid Username. It must contain at least 6 characters", "regex": "Username contains invalid characters - please use digits, letters or spaces", "remote": "--wrong login--" }, "pass": { "required": "Please enter Password", "rangelength": "Password must contain at least 6 letters or digits" }, "_pass": { "required": "This field is required", "equalTo": "Password and Password Confirmation are different. Please reenter both" }, "coupon": { "remote": "" } }
+                //,debug : true
+                , errorPlacement: function (error, element) {
+                    error.appendTo(element.parent());
+                }
+                , submitHandler: function (form, event) {
+                    event.stopPropagation();
+                    var ev = jQuery.Event("amFormSubmit", {
+                        originalEvent: event,
+                        callback: function () {
+                            form.submit();
+                        }
+                    });
+                    // function shall replace callback to your own code
+                    jQuery(form).trigger(ev);
+                    if (ev.callback)
+                        ev.callback();
+                }
+                // custom validate js code start
+
+                , errorElement: "span"
+                // custom validate js code end
+            });
+        }
+        // custom js code start
+
+        // custom js code end
+    });
+</script>
+</div>
+<script type="text/javascript">
+    // this file is here for compatibility only
+    document.querySelectorAll('form')
+        .forEach(function (form) { amCountryState.initDefaults(form); });
+</script>
+</div>
+</div>
+<div id="am-flash" class="am-flash">
+    <div class="am-flash-mask"></div>
+    <div class="am-flash-content"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="am-footer">
+    <div class="am-footer-content-wrapper am-main">
+        <div class="am-footer-content">
+            <div class="am-footer-actions">
+                <a href="#top" id="am-action-move-to-top"></a>
+            </div>
+
+            <div class="am-footer-content-content">
+                <div class="am-footer-text">Copyrights &copy; 2022 All Rights Reserved by Watch Aha TV</div>
+                <div class="am-footer-sm">
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript" id='am-ctcs-v1'>
-        (function () {
-            var url = (("https:" == document.location.protocol) ?
-                "https:\/\/watchahatv.com\/users\/aff\/click-js\/" : "https:\/\/watchahatv.com\/users\/aff\/click-js\/");
-            var d = document, s = d.createElement('script'), src = d.getElementsByTagName('script')[0];
-            var w = window; var lo = w.location; var hr = lo.href; var ho = lo.host; var se = lo.search;
-            var m = RegExp('[?&]ref=([^&]*)').exec(se);
-            var k = RegExp('[?&]keyword=([^&]*)').exec(se);
-            var ref = m && decodeURIComponent(m[1].replace(/\+/g, ' '));
-            var keyword = k && k[1];
-            s.type = 'text/javascript'; s.async = true;
-            var jssrc = url + '?r=' + ref + '&s=' + encodeURIComponent(document.referrer);
-            if (k) jssrc = jssrc + '&keyword=' + keyword;
-            s.src = jssrc;
-            if (ref) {
-                src.parentNode.insertBefore(s, src); var uri = hr.toString().split(ho)[1];
-                uri = uri.replace(m[0], "");
-                if (k) uri = uri.replace(k[0], "");
-                w.history.replaceState('Object', 'Title', uri);
-            }
-        })();
-    </script>
+</div>
+<script type="text/javascript" id='am-ctcs-v1'>
+    (function () {
+        var url = (("https:" == document.location.protocol) ?
+            "https:\/\/watchahatv.com\/users\/aff\/click-js\/" : "https:\/\/watchahatv.com\/users\/aff\/click-js\/");
+        var d = document, s = d.createElement('script'), src = d.getElementsByTagName('script')[0];
+        var w = window; var lo = w.location; var hr = lo.href; var ho = lo.host; var se = lo.search;
+        var m = RegExp('[?&]ref=([^&]*)').exec(se);
+        var k = RegExp('[?&]keyword=([^&]*)').exec(se);
+        var ref = m && decodeURIComponent(m[1].replace(/\+/g, ' '));
+        var keyword = k && k[1];
+        s.type = 'text/javascript'; s.async = true;
+        var jssrc = url + '?r=' + ref + '&s=' + encodeURIComponent(document.referrer);
+        if (k) jssrc = jssrc + '&keyword=' + keyword;
+        s.src = jssrc;
+        if (ref) {
+            src.parentNode.insertBefore(s, src); var uri = hr.toString().split(ho)[1];
+            uri = uri.replace(m[0], "");
+            if (k) uri = uri.replace(k[0], "");
+            w.history.replaceState('Object', 'Title', uri);
+        }
+    })();
+</script>
 </body>
 
-<!-- Mirrored from watchahatv.com/users/signup by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 26 Nov 2022 15:41:02 GMT -->
+
 
 </html>
