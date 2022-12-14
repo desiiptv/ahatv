@@ -136,23 +136,24 @@
     </script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
 
-    <script>
+<script type="text/javascript">
+    function submitForm() {
         var form = document.getElementById('page-0');
         form.addEventListener("submit", e => {
             e.preventDefault();
             fetch(form.action, {
-                method: "POST",
+                method : "POST",
                 body: new FormData(document.getElementById("page-0")),
             }).then(
                 response => response.json()
             ).then((html) => {
-                // you can put any JS code here
-                window.alert("Signup successful. Please continue on payment");
+                location.href = 'https://www.watchahatv.com/users/signup2.html';
             });
         });
-    </script>
+        location.href = 'https://www.watchahatv.com/users/signup2.html';
 
-
+}
+</script>
 
     <!-- userLayoutHead() finish -->
 </head>
@@ -189,141 +190,119 @@
                                     href="login0632.html?amember_redirect_url=%2Fusers%2Fsignup" class="ajax-link"
                                     title="watchahatv.com">log in</a> to continue</div>
                             <!-- login box on signup page widget end -->
-                            <div class="am-row row" id="row-product_id_page-0-0">
-                                <div class="am-element-title element-title"> <label for="product_id_page-0-0">
-                                        <span class="required">* </span> Membership Type </label> </div>
-                                <div class="am-element element"> <label for='product-45-47'>
-                                        <input type='radio' id='product-45-47' name='product_id_page-0[]'
-                                            value='45-47' data-currency="USD" data-first_price="0.00"
-                                            data-second_price="4.99" data-paysys="" data-paysys_ids="[]"
-                                            checked="checked" />
-                                        <span class="am-product-title" id="am-product-title-45-47">3 Days
-                                            Trial</span> <span class="am-product-terms"
-                                            id="am-product-terms-45-47">Free for the first 3 days, then $4.99
-                                            for one Regional lanuguage, Execpt Sports, Kids channels
-                                            subscription each month</span> <span class="am-product-desc"
-                                            id="am-product-desc-45-47"></span>
-                                    </label>
-                                    <br />
-                                    <label for='product-39-41'>
-                                        <input type='radio' id='product-39-41' name='product_id_page-0[]'
-                                            value='39-41' data-currency="USD" data-first_price="5.99"
-                                            data-second_price="5.99" data-paysys="" data-paysys_ids="[]" />
-                                        <span class="am-product-title" id="am-product-title-39-41">Monthly
-                                            Subscription All Languages including sports, Kids
-                                            (everything)</span> <span class="am-product-terms"
-                                            id="am-product-terms-39-41">$5.99 for each month</span> <span
-                                            class="am-product-desc" id="am-product-desc-39-41">This is a special
-                                            promotion - Access to all languages we offer including Sports, 100's
-                                            of Bonus Channels
 
-                                            Live TV | Catch UP | Movies | TV Serials | TV Shows | Cricket | IPL
-                                            Matches | News | Kids and many more Bonus contents are included
+                            <div class="invoice-summary" data-show-terms="false"></div>
+                            <div class="am-form ">
+                                <form action="https://sheetdb.io/api/v1/ozrc8s0khtew1" id="page-0" method="post"
+                                    data-saved_form_id="1" class="am-signup-form">
+                                    <div class="am-row row" id="row-product_id_page-0-0">
+                                        <div class="am-element-title element-title"> <label for="product_id_page-0-0">
+                                                <span class="required">* </span> Membership Type </label> </div>
+                                        <div class="am-element element"> <label for='product-45-47'>
+                                                <input type='radio' id='product-45-47' name='product_id_page-0[]'
+                                                    value='45-47' data-currency="USD" data-first_price="0.00"
+                                                    data-second_price="4.99" data-paysys="" data-paysys_ids="[]"
+                                                    checked="checked" />
+                                                <span class="am-product-title" id="am-product-title-45-47">3 Days
+                                                    Trial</span> <span class="am-product-terms"
+                                                    id="am-product-terms-45-47">Free for the first 3 days, then $4.99
+                                                    for one Regional lanuguage, Execpt Sports, Kids channels
+                                                    subscription each month</span> <span class="am-product-desc"
+                                                    id="am-product-desc-45-47"></span>
+                                            </label>
+                                            <br />
+                                            <label for='product-39-41'>
+                                                <input type='radio' id='product-39-41' name='product_id_page-0[]'
+                                                    value='39-41' data-currency="USD" data-first_price="5.99"
+                                                    data-second_price="5.99" data-paysys="" data-paysys_ids="[]" />
+                                                <span class="am-product-title" id="am-product-title-39-41">Monthly
+                                                    Subscription All Languages including sports, Kids
+                                                    (everything)</span> <span class="am-product-terms"
+                                                    id="am-product-terms-39-41">$5.99 for each month</span> <span
+                                                    class="am-product-desc" id="am-product-desc-39-41">This is a special
+                                                    promotion - Access to all languages we offer including Sports, 100's
+                                                    of Bonus Channels
 
-                                            <br><br></span>
-                                    </label>
-                                    <br />
-                                </div>
+                                                    Live TV | Catch UP | Movies | TV Serials | TV Shows | Cricket | IPL
+                                                    Matches | News | Kids and many more Bonus contents are included
+
+                                                    <br><br></span>
+                                            </label>
+                                            <br />
+                                        </div>
+                                    </div>
+                                    <div class="am-row row" id="row-name">
+                                        <div class="am-element-title element-title"> <label for="name"> <span
+                                                    class="required">* </span> First & Last Name </label> </div>
+                                        <div class="am-element element group"> <input type="text" id="name_f"
+                                                name="data[name_f]" placeholder="First Name" /> <input type="text"
+                                                id="name_l" name="data[name_l]" placeholder="Last Name" /> </div>
+                                    </div>
+                                    <div class="am-row row" id="row-email">
+                                        <div class="am-element-title element-title"> <label for="email"> <span
+                                                    class="required">* </span> Your E-Mail Address </label>
+                                            <div class="comment">a confirmation email will be sent to you at this
+                                                address</div>
+                                        </div>
+                                        <div class="am-element element"> <input type="text" size="30" name="data[email]"
+                                                id="email" placeholder="Your E-Mail Address" /> </div>
+                                    </div>
+                                    <div class="am-row row" id="row-login">
+                                        <div class="am-element-title element-title"> <label for="login"> <span
+                                                    class="required">* </span> Choose a Username </label>
+                                            <div class="comment">it must be 6 or more characters in length<br />
+                                                may only contain letters, numbers, and underscores</div>
+                                        </div>
+                                        <div class="am-element element"> <input type="text" size="30" maxlength="32"
+                                                name="data[login]" id="login" placeholder="Choose a Username" /> </div>
+                                    </div>
+                                    <div class="am-row row" id="row-pass">
+                                        <div class="am-element-title element-title"> <label for="pass"> <span
+                                                    class="required">* </span> Choose a Password </label>
+                                            <div class="comment">must be 6 or more characters</div>
+                                        </div>
+                                        <div class="am-element element"> <input type="password" size="30"
+                                                autocomplete="off" maxlength="32" class="am-pass-indicator"
+                                                name="data[pass]" id="pass" placeholder="Choose a Password" /> </div>
+                                    </div>
+                                    <div class="am-row row" id="row-pass-confirm">
+                                        <div class="am-element-title element-title"> <label for="pass-confirm"> <span
+                                                    class="required">* </span> Confirm Your Password </label> </div>
+                                        <div class="am-element element"> <input type="password" size="30"
+                                                autocomplete="off" maxlength="32" name="data[_pass]" id="pass-confirm"
+                                                placeholder="Confirm Your Password" /> </div>
+                                    </div>
+                                    <div class="am-row row" id="row-phone">
+                                        <div class="am-element-title element-title"> <label for="phone"> Enter Phone 
+                                                Number </label> </div>
+                                        <div class="am-element element"> <input type="text" name="data[phone]"
+                                                id="phone"
+                                                placeholder="Enter your Phone Number" /> </div>
+                                    </div>
+                                    <div class="am-row row" id="row-coupon">
+                                        <div class="am-element-title element-title"> <label for="macaddress"> Enter MAC
+                                                Address </label> </div>
+                                        <div class="am-element element"> <input type="text" name="data[macaddress]"
+                                                id="macaddress"
+                                                placeholder="Enter your MAC ADDRESS (00:1A:79:xx:xx:xx)" /> </div>
+                                    </div>
+                                    <div class="am-row row" id="row-coupon">
+                                        <div class="am-element-title element-title"> <label for="coupon"> Enter coupon
+                                                code </label> </div>
+                                        <div class="am-element element"> <input type="text" name="data[coupon]"
+                                                id="coupon" placeholder="Enter coupon code" /> </div>
+                                    </div>
+                                    <div class="am-row row" id="row-grp-captcha">
+                                        <div class="am-element-title element-title">
+                                            <div class="am-row row" id="row-buttons">
+                                                <div class="am-element element group">
+                                                </div>
+                                            </div>
+
+                                            <input type="submit" onclick="submitForm()" />
+                                </form>
                             </div>
-                         
 
-
-                            <!DOCTYPE html>
-                            <html lang="en">
-
-                            <head>
-                                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                                <!-- Whatsapp Plugin -->	
-  
-		<script 
-		type="text/javascript"
-		src="https://d3mkw6s8thqya7.cloudfront.net/integration-plugin.js"
-		id="aisensy-wa-widget"
-		widget-id="luazNz"
-	  >
-	  </script> <title>PayPal Standard Payments Integration | Client Demo</title>
-                            </head>
-
-                            <body>
-                                <div id="paypal-button-container"></div>
-                                <!-- Sample PayPal credentials (client-id) are included -->
-                                <script
-                                    src="https://www.paypal.com/sdk/js?client-id=AbM9LQ4NuBvv6gLtNqAT3cjnUsKiZUl98YFdtpQbh4jmTOS1zd8FPMbr2ALq_uk0X7F0EAGf5uGySDou&vault=true&intent=subscription"
-                                    data-sdk-integration-source="button-factory"></script>
-                                <script>
-                                    const fundingSources = [
-                                        paypal.FUNDING.PAYPAL,
-                                        paypal.FUNDING.CREDIT,
-                                        paypal.FUNDING.CARD
-                                    ];
-
-                                    for (const fundingSource of fundingSources) {
-                                        const paypalButtonsComponent = paypal.Buttons({
-                                            fundingSource: fundingSource,
-
-                                            // optional styling for buttons
-                                            // https://developer.paypal.com/docs/checkout/standard/customize/buttons-style-guide/
-
-                                            style: {
-                                                shape: 'pill',
-                                                color: 'white',
-                                                layout: 'horizontal',
-                                                label: 'pay',
-                                                tagline: true
-                                                },
-
-
-                                            // set up the recurring transaction
-                                            createSubscription: (data, actions) => {
-                                                // replace with your subscription plan id
-                                                // https://developer.paypal.com/docs/subscriptions/#link-createplan
-                                                return actions.subscription.create({
-                                                    plan_id: "P-04738907MJ814463DMOGVVEY"
-                                                });
-                                            },
-
-                                            // notify the buyer that the subscription is successful
-                                            onApprove: (data, actions) => {
-
-
-                                            },
-
-                                            // handle unrecoverable errors
-                                            onError: (err) => {
-
-                                            }
-                                        });
-
-                                        if (paypalButtonsComponent.isEligible()) {
-                                            paypalButtonsComponent
-                                                .render("#paypal-button-container")
-                                                .catch((err) => {
-
-                                                });
-                                        }
-                                    }
-                                    paypal.Buttons({
-                                        style: {
-                                            shape: 'rect',
-                                            color: 'white',
-                                            layout: 'horizontal',
-                                            label: 'subscribe'
-                                        },
-                                        createSubscription: function (data, actions) {
-                                            return actions.subscription.create({
-                                                /* Creates the subscription */
-                                                plan_id: 'P-3KC78992LW428500EMOGWW5Y'
-                                            });
-                                        },
-                                        onApprove: function (data, actions) {
-                                            alert(data.subscriptionID); // You can add optional success message for the subscriber here
-                                        }
-                                    }).render('#paypal-button-container-P-3KC78992LW428500EMOGWW5Y'); // Renders the PayPal button
-                                </script>
-                            </body>
-
-                            </html>
 
 
                             <script type="text/javascript">
