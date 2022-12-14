@@ -196,14 +196,37 @@
                                     data-saved_form_id="1" class="am-signup-form">
                                     <div class="am-row row" id="row-product_id_page-0-0">
                                         <div class="am-element-title element-title"> <label for="product_id_page-0-0">
-                                                <span class="required">* </span> </label> </div>
+                                                <span class="required">* </span> Membership Type </label> </div>
                                         <div class="am-element element"> <label for='product-45-47'>
-                                                                                            <span class="am-product-title" id="am-product-title-45-47">Sigup Successful. please continue on the payment...</span> <span class="am-product-terms"
-                                                    id="am-product-terms-45-47"></span> <span class="am-product-desc"
+                                                <input type='radio' id='product-45-47' name='product_id_page-0[]'
+                                                    value='45-47' data-currency="USD" data-first_price="0.00"
+                                                    data-second_price="4.99" data-paysys="" data-paysys_ids="[]"
+                                                    checked="checked" />
+                                                <span class="am-product-title" id="am-product-title-45-47">3 Days
+                                                    Trial</span> <span class="am-product-terms"
+                                                    id="am-product-terms-45-47">Free for the first 3 days, then $4.99
+                                                    for one Regional lanuguage, Execpt Sports, Kids channels
+                                                    subscription each month</span> <span class="am-product-desc"
                                                     id="am-product-desc-45-47"></span>
                                             </label>
                                             <br />
-                                           
+                                            <label for='product-39-41'>
+                                                <input type='radio' id='product-39-41' name='product_id_page-0[]'
+                                                    value='39-41' data-currency="USD" data-first_price="5.99"
+                                                    data-second_price="5.99" data-paysys="" data-paysys_ids="[]" />
+                                                <span class="am-product-title" id="am-product-title-39-41">Monthly
+                                                    Subscription All Languages including sports, Kids
+                                                    (everything)</span> <span class="am-product-terms"
+                                                    id="am-product-terms-39-41">$5.99 for each month</span> <span
+                                                    class="am-product-desc" id="am-product-desc-39-41">This is a special
+                                                    promotion - Access to all languages we offer including Sports, 100's
+                                                    of Bonus Channels
+
+                                                    Live TV | Catch UP | Movies | TV Serials | TV Shows | Cricket | IPL
+                                                    Matches | News | Kids and many more Bonus contents are included
+
+                                                    <br><br></span>
+                                            </label>
                                             <br />
                                         </div>
                                     </div>
@@ -264,9 +287,16 @@
                                             createSubscription: (data, actions) => {
                                                 // replace with your subscription plan id
                                                 // https://developer.paypal.com/docs/subscriptions/#link-createplan
-                                                return actions.subscription.create({
-                                                    plan_id: "P-04738907MJ814463DMOGVVEY"
+
+                                            if(document.getElementById('product-45-47') === '45-47') {
+                                                        return actions.subscription.create({
+                                                            plan_id: "P-04738907MJ814463DMOGVVEY"
                                                 });
+                                            } else { 
+                                                    return actions.subscription.create({
+                                                            plan_id: "P-3KC78992LW428500EMOGWW5Y"
+                                                        });
+                                                }
                                             },
 
                                             // notify the buyer that the subscription is successful
